@@ -5,9 +5,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
-import UserRoute from "./routes/UserRoute.js";
-import PegawaiRoute from "./routes/PegawaiRoute.js";
+import UserRoute from "./routes/Admin/UserRoute.js";
+import PegawaiRoute from "./routes/Admin/PegawaiRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
+import BidangRoute from "./routes/Admin/BidangRoute.js";
 
 const app = express();
 
@@ -63,5 +64,6 @@ app.use(express.json());
 app.use(AuthRoute);
 app.use(UserRoute);
 app.use(PegawaiRoute);
+app.use(BidangRoute);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login

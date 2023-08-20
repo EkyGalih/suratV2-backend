@@ -1,4 +1,4 @@
-import Pegawai from "../models/PegawaiModel.js";
+import Pegawai from "../../models/PegawaiModel.js";
 
 export const getPegawai = async(req, res) => {
     try {

@@ -5,8 +5,8 @@ import {
     createPegawai,
     updatePegawai,
     deletePegawai
-} from "../controllers/PegawaiController.js";
-import { verifyUser } from "../middleware/AuthMiddleware.js";
+} from "../../controllers/Admin/PegawaiController.js";
+import { verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 

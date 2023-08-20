@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 20, 2023 at 03:11 PM
+-- Generation Time: Aug 20, 2023 at 10:45 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -30,15 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `bidang` (
   `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_bidang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `bidang`
 --
 
-INSERT INTO `bidang` (`id`, `nama_bidang`, `created_at`, `updated_at`) VALUES
+INSERT INTO `bidang` (`id`, `nama_bidang`, `createdAt`, `updatedAt`) VALUES
 ('0627251b-0e2f-4609-be16-b8abce89ff6c', 'UPTB Aset', '2023-01-06 01:53:53', '2023-01-06 01:53:53'),
 ('1f30e9ae-9f1a-4026-86d7-9384ae70241b', 'TU - (SEKERTARIAT)', '2023-01-06 01:53:28', '2023-01-12 05:17:59'),
 ('348e3315-b868-4eb1-8c1e-7f6d24857cca', 'PAMDAL', '2023-01-12 08:25:26', '2023-01-12 08:25:35'),
@@ -168,15 +168,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `pangkat` (
   `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_pangkat` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pangkat`
 --
 
-INSERT INTO `pangkat` (`id`, `nama_pangkat`, `created_at`, `updated_at`) VALUES
+INSERT INTO `pangkat` (`id`, `nama_pangkat`, `createdAt`, `updatedAt`) VALUES
 ('154abb69-b672-45fd-8397-0d96afbe9766', 'II/A', '2023-01-05 02:35:47', '2023-01-05 02:35:47'),
 ('254f8ec9-5441-4749-acf9-da7b5043875e', 'III/A', '2023-01-05 02:36:04', '2023-01-05 02:36:04'),
 ('462ee31c-1842-4137-824f-dd3cdee91b47', 'IV/D', '2023-01-05 02:36:45', '2023-01-05 02:36:45'),
@@ -456,8 +456,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
-('8dTEaablwIqN1thMByXh1dOyNjeYEuSH', '2023-08-21 15:02:38', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"1\"}', '2023-08-20 14:59:47', '2023-08-20 15:02:38'),
-('PgXmiV2yT_iwIKkdZToywBfQTgCv_Add', '2023-08-21 15:02:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-20 15:02:20', '2023-08-20 15:02:36');
+('2MFfGlKUjpr0wDQP501QBOM97AUWIeoM', '2023-08-21 22:44:45', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-20 22:42:19', '2023-08-20 22:44:45'),
+('PgXmiV2yT_iwIKkdZToywBfQTgCv_Add', '2023-08-21 15:02:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-20 15:02:20', '2023-08-20 15:02:36'),
+('STvJiGmUqC3Kv1_FWEBTOGtlbE200Huq', '2023-08-21 22:09:22', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-20 22:09:22', '2023-08-20 22:09:22');
 
 -- --------------------------------------------------------
 

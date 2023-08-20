@@ -1,5 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
+import Bidang from "./BidangModel.js";
+import Pangkat from "./PangkatModel.js";
+import Golongan from "./GolonganModel.js";
 
 const {DataTypes} = Sequelize;
 
@@ -154,5 +157,17 @@ const Pegawai = db.define('pegawai', {
 }, {
     freezeTableName: true
 });
+
+// relasi one to one bidang dengan pegawai
+Bidang.hasOne(Pegawai);
+Pegawai.belongsTo(Bidang, {foreignKey: 'bidangId'});
+
+// relasi one to one pangkat dengan pegawai
+Pangkat.hasOne(Pegawai);
+Pegawai.belongsTo(Pangkat, {foreignKey: 'pangkatId'});
+
+// relasi one to one golongan dengan pegawai
+Golongan.hasOne(Pegawai);
+Pegawai.belongsTo(Golongan, {foreignKey: 'golonganId'});
 
 export default Pegawai;

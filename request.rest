@@ -1,4 +1,15 @@
+
 GET http://localhost:5000/users
+###
+DELETE http://localhost:5000/bidang/dd21c4e8-f677-422b-b7aa-f70ccb1a07d6
+
+###
+PATCH http://localhost:5000/bidang/dd21c4e8-f677-422b-b7aa-f70ccb1a07d6
+Content-Type: application/json
+
+{
+    "nama_bidang": "tes update"
+}
 
 ###
 GET http://localhost:5000/users/1
@@ -33,8 +44,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username": "196601211985032004",
-    "password": "196601211985032004"
+    "username": "admin",
+    "password": "123456"
 }
 
 ###
