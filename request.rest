@@ -1,0 +1,44 @@
+GET http://localhost:5000/users
+
+###
+GET http://localhost:5000/users/1
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "nama_lengkap": "user baru bpkad",
+    "level": "user",
+    "pegawaiId": "e016e40f-e624-4207-8fb9-bdc5dc1b7977",
+    "username": "198406272010012004",
+    "password": "198406272010012004",
+    "confPassword": "198406272010012004"
+}
+
+###
+PATCH http://localhost:5000/users/1
+Content-Type: application/json
+
+{
+    "password": "196601211985032004",
+    "confPassword": "196601211985032004"
+}
+
+###
+DELETE http://localhost:5000/users/1ea45932-c4e3-4bfb-b758-6d8370dc20fe
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "196601211985032004",
+    "password": "196601211985032004"
+}
+
+###
+GET http://localhost:5000/me
+
+###
+DELETE http://localhost:5000/logout
