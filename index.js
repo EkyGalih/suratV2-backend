@@ -9,6 +9,7 @@ import UserRoute from "./routes/Admin/UserRoute.js";
 import PegawaiRoute from "./routes/Admin/PegawaiRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import BidangRoute from "./routes/Admin/BidangRoute.js";
+import PangkatRoute from "./routes/Admin/PangkatRoute.js";
 
 const app = express();
 
@@ -65,5 +66,6 @@ app.use(AuthRoute);
 app.use(UserRoute);
 app.use(PegawaiRoute);
 app.use(BidangRoute);
+app.use(PangkatRoute);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login

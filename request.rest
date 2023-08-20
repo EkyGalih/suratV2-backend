@@ -1,14 +1,14 @@
 
 GET http://localhost:5000/users
 ###
-DELETE http://localhost:5000/bidang/dd21c4e8-f677-422b-b7aa-f70ccb1a07d6
+DELETE http://localhost:5000/pangkat/5ff4c75a-524d-41cd-a4e4-fe412371b247
 
 ###
-PATCH http://localhost:5000/bidang/dd21c4e8-f677-422b-b7aa-f70ccb1a07d6
+PATCH http://localhost:5000/pangkat/5ff4c75a-524d-41cd-a4e4-fe412371b247
 Content-Type: application/json
 
 {
-    "nama_bidang": "tes update"
+    "nama_pangkat": "pangkat 1 update"
 }
 
 ###
