@@ -1,7 +1,7 @@
 
-GET http://localhost:5000/users
+GET http://localhost:5000/pegawai/ab672982-6b5b-4d88-8895-9fb49b937b27
 ###
-GET http://localhost:5000/golongan
+GET http://localhost:5000/users
 
 ###
 PATCH http://localhost:5000/pangkat/5ff4c75a-524d-41cd-a4e4-fe412371b247

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import session, { Session } from "express-session";
+import session from "express-session";
 import dotenv from "dotenv";
 dotenv.config();
 import db from "./config/Database.js";
@@ -11,6 +11,8 @@ import AuthRoute from "./routes/AuthRoute.js";
 import BidangRoute from "./routes/Admin/BidangRoute.js";
 import PangkatRoute from "./routes/Admin/PangkatRoute.js";
 import GolonganRoute from "./routes/Admin/GolonganRoute.js";
+import SuratRoute from "./routes/Admin/SuratRoute.js";
+import DistribusiRoute from "./routes/Admin/DistribusiRoute.js";
 
 const app = express();
 
@@ -69,5 +71,7 @@ app.use(PegawaiRoute);
 app.use(BidangRoute);
 app.use(PangkatRoute);
 app.use(GolonganRoute);
+app.use(SuratRoute);
+app.use(DistribusiRoute);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login
