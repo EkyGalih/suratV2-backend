@@ -2,7 +2,11 @@ import Bidang from "../../models/BidangModel.js";
 
 export const getBidang = async (req, res) => {
     try {
-        const response = await Bidang.findAll();
+        const response = await Bidang.findAll({
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
         res.status(200).json(response);
     } catch (error) {
         res.status(500).json({ msg: error.message });
@@ -25,7 +29,9 @@ export const getBidangById = async (req, res) => {
 export const createBidang = async (req, res) => {
     const { nama_bidang } = req.body;
     try {
-        await Bidang.create({ nama_bidang: nama_bidang });
+        await Bidang.create({
+            nama_bidang: nama_bidang
+        });
         res.status(200).json({ msg: 'Bidang dibuat!' });
     } catch (error) {
         res.status(400).json({ msg: error.message });
@@ -48,7 +54,7 @@ export const updateBidang = async (req, res) => {
                 id: bidang.id
             }
         });
-        res.status(200).json({ msg: "Bidang di perbaharui!" });
+        res.status(200).json({ msg: 'Bidang dibuat!' });
     } catch (error) {
         res.status(400).json({ msg: error.message });
     }

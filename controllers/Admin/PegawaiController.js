@@ -15,7 +15,10 @@ export const getPegawai = async (req, res) => {
             }, {
                 model: Pangkat,
                 attributes: ['id', 'nama_pangkat']
-            }]
+            }],
+            order: [[
+                'createdAt', 'DESC'
+            ]]
         });
         res.status(200).json(response);
     } catch (error) {
@@ -48,7 +51,30 @@ export const getPegawaiById = async (req, res) => {
 
 export const createPegawai = async (req, res) => {
     const {
-        nip, jenis_pegawai, name, tempat_lahir, tanggal_lahir, nama_jabatan, jabatan, initial_jabatan, masa_kerja_golongan, diklat, pendidikan, no_sk, no_rekening, nama_rekening, umur, jenis_kelamin, agama, kenaikan_pangkat, batas_pensiun, foto, url, pangkatId, golonganId, bidangId
+        nip,
+        jenis_pegawai,
+        name,
+        tempat_lahir,
+        tanggal_lahir,
+        nama_jabatan,
+        jabatan,
+        initial_jabatan,
+        masa_kerja_golongan,
+        diklat,
+        pendidikan,
+        no_sk,
+        no_rekening,
+        nama_rekening,
+        umur,
+        jenis_kelamin,
+        agama,
+        kenaikan_pangkat,
+        batas_pensiun,
+        foto,
+        url,
+        pangkatId,
+        golonganId,
+        bidangId
     } = req.body;
     try {
         await Pegawai.create({
@@ -91,7 +117,30 @@ export const updatePegawai = async (req, res) => {
     });
     if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
     const {
-        nip, jenis_pegawai, name, tempat_lahir, tanggal_lahir, nama_jabatan, jabatan, initial_jabatan, masa_kerja_golongan, diklat, pendidikan, no_sk, no_rekening, nama_rekening, umur, jenis_kelamin, agama, kenaikan_pangkat, batas_pensiun, foto, url, pangkatId, golonganId, bidangId
+        nip,
+        jenis_pegawai,
+        name,
+        tempat_lahir,
+        tanggal_lahir,
+        nama_jabatan,
+        jabatan,
+        initial_jabatan,
+        masa_kerja_golongan,
+        diklat,
+        pendidikan,
+        no_sk,
+        no_rekening,
+        nama_rekening,
+        umur,
+        jenis_kelamin,
+        agama,
+        kenaikan_pangkat,
+        batas_pensiun,
+        foto,
+        url,
+        pangkatId,
+        golonganId,
+        bidangId
     } = req.body;
     try {
         await Pegawai.update({

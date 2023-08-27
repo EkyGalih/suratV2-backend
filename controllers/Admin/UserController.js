@@ -1,3 +1,4 @@
+import Bidang from "../../models/BidangModel.js";
 import Pegawai from "../../models/PegawaiModel.js";
 import Users from "../../models/UserModel.js";
 import argon2 from "argon2";
@@ -5,11 +6,12 @@ import argon2 from "argon2";
 export const getUser = async (req, res) => {
     try {
         const response = await Users.findAll({
-            attributes: ['id', 'nama_lengkap', 'level', 'username'],
+            attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
             include: [{
                 model: Pegawai,
                 attributes: ['nip', 'name']
-            }]
+            }],
+            order: [['createdAt', 'DESC']]
         });
         res.status(200).json(response);
     } catch (error) {
@@ -20,7 +22,7 @@ export const getUser = async (req, res) => {
 export const getUserById = async (req, res) => {
     try {
         const response = await Users.findOne({
-            attributes: ['id', 'nama_lengkap', 'level', 'username'],
+            attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
             where: {
                 id: req.params.id
             },
