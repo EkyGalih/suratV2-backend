@@ -6,9 +6,9 @@ const {DataTypes} = Sequelize;
 
 const Users = db.define('Users', {
     id: {
+        type: DataTypes.STRING(40),
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.STRING(40),
         defaultValue: DataTypes.UUIDV4,
         validate: {
             notEmpty: true

@@ -135,17 +135,11 @@ const Pegawai = db.define('pegawai', {
     },
     pangkatId: {
         type: DataTypes.STRING(40),
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
+        allowNull: true,
     },
     golonganId: {
         type: DataTypes.STRING(40),
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
+        allowNull: true,
     },
     bidangId: {
         type: DataTypes.STRING(40),
@@ -160,14 +154,14 @@ const Pegawai = db.define('pegawai', {
 
 // relasi one to one bidang dengan pegawai
 Bidang.hasOne(Pegawai);
-Pegawai.belongsTo(Bidang, {foreignKey: 'bidangId'});
+Pegawai.belongsTo(Bidang);
 
 // relasi one to one pangkat dengan pegawai
 Pangkat.hasOne(Pegawai);
-Pegawai.belongsTo(Pangkat, {foreignKey: 'pangkatId'});
+Pegawai.belongsTo(Pangkat);
 
 // relasi one to one golongan dengan pegawai
 Golongan.hasOne(Pegawai);
-Pegawai.belongsTo(Golongan, {foreignKey: 'golonganId'});
+Pegawai.belongsTo(Golongan);
 
 export default Pegawai;

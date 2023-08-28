@@ -33,14 +33,11 @@ export const getPegawaiById = async (req, res) => {
                 id: req.params.id
             },
             include: [{
-                model: Bidang,
-                attributes: ['id', 'nama_bidang']
+                model: Bidang
             }, {
-                model: Golongan,
-                attributes: ['id', 'nama_golongan']
+                model: Golongan
             }, {
-                model: Pangkat,
-                attributes: ['id', 'nama_pangkat']
+                model: Pangkat
             }]
         });
         res.status(200).json(response);
@@ -170,10 +167,10 @@ export const updatePegawai = async (req, res) => {
             bidangId: bidangId
         }, {
             where: {
-                id: pegawai.id
+                id: req.params.id
             }
         });
-        res.status(200).json({ msg: "Pegawai dibuat!" });
+        res.status(200).json({ msg: "Pegawai Diubah!" });
     } catch (error) {
         res.status(400).json({ msg: error.message });
     }
