@@ -1,7 +1,7 @@
 
 GET http://localhost:5000/pegawai/ab672982-6b5b-4d88-8895-9fb49b937b27
 ###
-GET http://localhost:5000/golongan/
+GET http://localhost:5000/users?search_query=yul&page=0&limit=10
 
 ###
 PATCH http://localhost:5000/pegawai/984e03c1-a5b5-468d-8d52-7aa3a1c23ee2
