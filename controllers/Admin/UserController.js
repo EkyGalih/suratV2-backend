@@ -4,73 +4,62 @@ import Users from "../../models/UserModel.js";
 import argon2 from "argon2";
 
 export const getUser = async (req, res) => {
-    const page = parseInt(req.query.page) || 0;
-    const limit = parseInt(req.query.limit) || 10;
-    const search = req.query.search_query || "";
-    const offset = limit * page;
-    const totalRows = await Users.count({
-        where: {
-            [Op.or]: [{
-                username: {
-                    [Op.like]: '%' + search + '%'
-                },
-            }, {
-                nama_lengkap: {
-                    [Op.like]: '%' + search + '%'
-                }
-            }]
-        },
-        attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
-        include: [{
-            model: Pegawai,
-            attributes: ['nip', 'name']
-        }],
-    });
-    const totalPage = Math.ceil(totalRows / limit);
-    const result = await Users.findAll({
-        where: {
-            [Op.or]: [{
-                username: {
-                    [Op.like]: '%' + search + '%'
-                },
-            }, {
-                nama_lengkap: {
-                    [Op.like]: '%' + search + '%'
-                }
-            }]
-        },
-        attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
-        include: [{
-            model: Pegawai,
-            attributes: ['nip', 'name']
-        }],
-        offset: offset,
-        limit: limit,
-        order: [
-            ['createdAt', 'DESC']
-        ]
-    });
-    res.json({
-        result: result,
-        page: page,
-        limit: limit,
-        totalRows: totalRows,
-        totalPage: totalPage
-    })
-
-    // try {
-    //     const response = await Users.findAll({
-    //         attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
-    //         include: [{
-    //             model: Pegawai,
-    //             attributes: ['nip', 'name']
-    //         }],
-    //         order: [['createdAt', 'DESC']]
-    //     });
-    //     res.status(200).json(response);
-    // } catch (error) {
-    //     res.status(500).json({ msg: error.message });
-    // }
+    try {
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 11;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Users.count({
+            where: {
+                [Op.or]: [{
+                    username: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    nama_lengkap: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
+            include: [{
+                model: Pegawai,
+                attributes: ['nip', 'name']
+            }],
+        });
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Users.findAll({
+            where: {
+                [Op.or]: [{
+                    username: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    nama_lengkap: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            attributes: ['id', 'nama_lengkap', 'level', 'username', 'pegawaiId'],
+            include: [{
+                model: Pegawai
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
 }
 
 export const getUserById = async (req, res) => {

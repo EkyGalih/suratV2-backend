@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import Bidang from "../../models/BidangModel.js";
 import Golongan from "../../models/GolonganModel.js";
 import Pangkat from "../../models/PangkatModel.js";
@@ -5,7 +6,20 @@ import Pegawai from "../../models/PegawaiModel.js";
 
 export const getPegawai = async (req, res) => {
     try {
-        const response = await Pegawai.findAll({
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Pegawai.count({
+            where: {
+                [Op.or]: [{name:{
+                    [Op.like]: '%' + search + '%'
+                }},{
+                    nip: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
             include: [{
                 model: Bidang,
                 attributes: ['id', 'nama_bidang']
@@ -16,11 +30,41 @@ export const getPegawai = async (req, res) => {
                 model: Pangkat,
                 attributes: ['id', 'nama_pangkat']
             }],
-            order: [[
-                'createdAt', 'DESC'
-            ]]
         });
-        res.status(200).json(response);
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Pegawai.findAll({
+            where: {
+                [Op.or]: [{name:{
+                    [Op.like]: '%' + search + '%'
+                }},{
+                    nip: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: Golongan,
+                attributes: ['id', 'nama_golongan']
+            }, {
+                model: Pangkat,
+                attributes: ['id', 'nama_pangkat']
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
     } catch (error) {
         console.log(error.message);
     }
