@@ -8,10 +8,10 @@ const {DataTypes} = Sequelize;
 
 const Pegawai = db.define('pegawai', {
     id: {
-        type: DataTypes.STRING(40),
+        type: DataTypes.STRING,
+        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
         validate: {
             notEmpty: true
         }
@@ -152,16 +152,11 @@ const Pegawai = db.define('pegawai', {
     freezeTableName: true
 });
 
-// relasi one to one bidang dengan pegawai
-Bidang.hasOne(Pegawai);
-Pegawai.belongsTo(Bidang);
-
-// relasi one to one pangkat dengan pegawai
 Pangkat.hasOne(Pegawai);
-Pegawai.belongsTo(Pangkat);
-
-// relasi one to one golongan dengan pegawai
+Pegawai.belongsTo(Pangkat, {foreignKey: 'pangkatId'});
 Golongan.hasOne(Pegawai);
-Pegawai.belongsTo(Golongan);
+Pegawai.belongsTo(Golongan, {foreignKey: 'golonganId'});
+Bidang.hasMany(Pegawai)
+Pegawai.belongsTo(Bidang, {foreignKey: 'bidangId'});
 
 export default Pegawai;

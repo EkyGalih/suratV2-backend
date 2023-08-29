@@ -61,6 +61,6 @@ const Users = db.define('Users', {
 
 
 Pegawai.hasOne(Users);
-Users.belongsTo(Pegawai, {foreignKey: 'pegawaiId'});
+Users.belongsTo(Pegawai);
 
 export default Users;

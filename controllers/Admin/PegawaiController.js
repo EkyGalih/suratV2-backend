@@ -26,13 +26,13 @@ export const getPegawai = async (req, res) => {
             },
             include: [{
                 model: Bidang,
-                attributes: ['id', 'nama_bidang']
+                attributes: ['nama_bidang']
             }, {
                 model: Golongan,
-                attributes: ['id', 'nama_golongan']
+                attributes: ['nama_golongan']
             }, {
                 model: Pangkat,
-                attributes: ['id', 'nama_pangkat']
+                attributes: ['nama_pangkat']
             }],
         });
         const totalPage = Math.ceil(totalRows / limit);
@@ -50,13 +50,13 @@ export const getPegawai = async (req, res) => {
             },
             include: [{
                 model: Bidang,
-                attributes: ['id', 'nama_bidang']
+                attributes: ['nama_bidang']
             }, {
                 model: Golongan,
-                attributes: ['id', 'nama_golongan']
+                attributes: ['nama_golongan']
             }, {
                 model: Pangkat,
-                attributes: ['id', 'nama_pangkat']
+                attributes: ['nama_pangkat']
             }],
             offset: offset,
             limit: limit,
@@ -83,11 +83,14 @@ export const getPegawaiById = async (req, res) => {
                 id: req.params.id
             },
             include: [{
-                model: Bidang
+                model: Bidang,
+                attributes: ['nama_bidang']
             }, {
-                model: Golongan
+                model: Golongan,
+                attributes: ['nama_golongan']
             }, {
-                model: Pangkat
+                model: Pangkat,
+                attributes: ['nama_pangkat']
             }]
         });
         res.status(200).json(response);
@@ -170,18 +173,23 @@ export const createPegawai = async (req, res) => {
 }
 
 export const updatePegawai = async (req, res) => {
-    const pegawai = Pegawai.findOne({
+    const peg = await Pegawai.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [{
+            model: Bidang
+        }, {
+            model: Golongan
+        }, {
+            model: Pangkat
+        }]
     });
-    console.log(req.params.id);
-    console.log(pegawai);
-    if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
+    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
 
     let fileName = "";
     if (req.files === null) {
-        fileName = pegawai.foto;
+        fileName = peg.foto;
     } else {
         const file = req.files.foto;
         const fileSize = file.data.length;
@@ -192,7 +200,7 @@ export const updatePegawai = async (req, res) => {
         if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
         if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB" });
 
-        const filepath = `./public/images/${pegawai.foto}`;
+        const filepath = `./public/images/${peg.foto}`;
         fs.unlinkSync(filepath);
 
         file.mv(`./public/images/${fileName}`, (err) => {
@@ -254,7 +262,7 @@ export const updatePegawai = async (req, res) => {
             bidangId: bidangId
         }, {
             where: {
-                id: req.params.id
+                id: peg.id
             }
         });
         res.status(200).json({ msg: "Pegawai Diubah!" });
@@ -264,18 +272,18 @@ export const updatePegawai = async (req, res) => {
 }
 
 export const deletePegawai = async (req, res) => {
-    const pegawai = await Pegawai.findOne({
+    const peg = await Pegawai.findOne({
         where: {
             id: req.params.id
         }
     });
-    if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
+    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
     try {
-        const filepath = `./public/images/${pegawai.foto}`;
+        const filepath = `./public/images/${peg.foto}`;
         fs.unlinkSync(filepath);
         await Pegawai.destroy({
             where: {
-                id: pegawai.id
+                id: peg.id
             }
         });
         res.status(200).json({ msg: "Pegawai dihapus!" });
