@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 22 Agu 2023 pada 00.10
+-- Waktu pembuatan: 29 Agu 2023 pada 08.29
 -- Versi server: 5.7.33
 -- Versi PHP: 8.1.7
 
@@ -39,19 +39,14 @@ CREATE TABLE `bidang` (
 --
 
 INSERT INTO `bidang` (`id`, `nama_bidang`, `createdAt`, `updatedAt`) VALUES
+('0214478e-1aa1-42d4-8971-474b5c00cd5f', 'Sekertariat', '2023-08-28 02:23:05', '2023-08-28 02:23:05'),
 ('0627251b-0e2f-4609-be16-b8abce89ff6c', 'UPTB Aset', '2023-01-06 01:53:53', '2023-01-06 01:53:53'),
-('1f30e9ae-9f1a-4026-86d7-9384ae70241b', 'TU - (SEKERTARIAT)', '2023-01-06 01:53:28', '2023-01-12 05:17:59'),
-('348e3315-b868-4eb1-8c1e-7f6d24857cca', 'PAMDAL', '2023-01-12 08:25:26', '2023-01-12 08:25:35'),
 ('454adcee-d791-40dc-adb5-bf4d029e7736', 'UPTB Perbendaharaan', '2023-01-06 01:53:46', '2023-01-06 01:58:03'),
 ('4805423b-8d94-4c42-ac73-2b71dbe7c843', 'Akuntansi', '2023-01-06 01:53:39', '2023-08-15 00:27:06'),
 ('5f187f13-c645-4ccd-b027-ac85e56e9f54', 'Arsip', '2023-01-06 01:53:48', '2023-01-06 01:53:48'),
 ('741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8', 'BEKK', '2023-01-06 01:53:33', '2023-01-06 01:53:33'),
 ('79530810-bc72-4bcd-9d45-a9180151abf6', 'BMD', '2023-01-06 01:53:36', '2023-01-06 01:53:36'),
-('988226b4-0cd4-4547-a218-25dd9c436520', 'Program - (SEKERTARIAT)', '2023-01-06 01:52:51', '2023-01-12 05:17:53'),
-('a35a9250-06e4-4d2e-bb23-605e6642f165', 'Pimpinan', '2023-01-06 02:45:52', '2023-01-06 02:45:52'),
-('c639a8a5-9159-4c17-9b59-427865c6b4ed', 'Lainnya', '2023-01-12 08:25:39', '2023-01-12 08:25:39'),
-('e2c0325b-1ecb-453d-992a-37ddfeaff82d', 'Anggaran', '2023-01-06 01:53:43', '2023-01-06 01:53:43'),
-('f60b5439-5d63-4c1e-8f28-9e4940619244', 'Keuangan - (SEKERTARIAT)', '2023-01-06 01:53:25', '2023-01-12 05:17:38');
+('e2c0325b-1ecb-453d-992a-37ddfeaff82d', 'Anggaran', '2023-01-06 01:53:43', '2023-01-06 01:53:43');
 
 -- --------------------------------------------------------
 
@@ -342,6 +337,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('80f8cd54-1620-499d-b48e-d14b720172c9', '196912311989031039', NULL, 'Drs. ERVAN ANWAR, MM', 'Lotim', '1969-12-12', 'kabag', 'Kepala Bidang Pengelolaan Barang Milik Daerah [Struktural Jabatan Administrator] ( 06-10-2021 )', 'BMD', '28 thn, 0 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat III (Diklatpim Tk. III)\r\n( Diklat Pim.Tk.III )\r\n[ Badan DIKLAT ]\r\n( 2005 )', 'Pasca Sarjana Magister Manajemen Universitas Mataram ( 2013 )', NULL, NULL, NULL, 53, 'pria', 'islam', '-', 2027, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-13 02:17:55', '2023-01-13 02:17:55', 'a65b2c45-0752-47e7-9425-46da8f40b992', '7d3eb832-db8e-4b53-8bdb-3045ead025b4', '79530810-bc72-4bcd-9d45-a9180151abf6'),
 ('8167c563-ba98-4ac6-892c-c99b888049a9', '196612311993031137', 'pns', 'SAEFUDIN', 'Kenawa Loteng', '1966-12-31', 'pegawai', 'Pengolah Data\r\n[Fungsional Umum -]\r\n( 04-09-2015 )', NULL, '22 thn,\r\n10 bln', '-', 'SMA IPA SMAN 1( 1988 )', NULL, NULL, NULL, 55, 'pria', 'islam', '-', 2034, '5edee54b5e8af4c02c3b6f857fd2e42a.jpg', 'http://localhost:5000/images/5edee54b5e8af4c02c3b6f857fd2e42a.jpg', '2023-01-12 09:26:50', '2023-01-12 04:11:07', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8'),
 ('8239053a-e8d2-420d-be90-6e554c489dbf', '196810191989021002', 'pns', 'LALU SATRIYAWIRYASANTANA', 'Lotim', '1971-09-27', 'pegawai', 'Pengadministrasi\r\n[Fungsional Umum -]\r\n( 04-09-2015 )', NULL, '17 thn,\r\n01 bln', '-', 'SMK\r\n-\r\n\r\n( 1993 )', NULL, NULL, NULL, 50, 'pria', 'islam', '-', 2035, 'e78ab5edc12d000ee2242204e6a744e1.jpg', NULL, '2023-01-12 09:26:48', '2023-01-12 09:26:48', NULL, NULL, NULL),
+('839597ac-b5c3-4731-879f-ca2409264aea', '', 'pns', 'tesss', 'dasan lekong', 'undefined', 'pegawai', '', '', '', '', '', '', '', '', 33, 'pria', 'islam', '', 2045, '9470fdefb70678791d53ca2732d512b6.png', 'http://localhost:5000/images/undefined', '2023-08-29 07:18:25', '2023-08-29 08:13:09', '', '', '0214478e-1aa1-42d4-8971-474b5c00cd5f'),
 ('84cd7026-426b-4a6f-ae23-3fe3ad9f62b5', '196408021991031007', 'pns', 'LALU ADRYAN SAPUTRAWAN', 'Sakra Lotim', '1985-01-21', 'pegawai', 'Pengolah Data pada Bidang Anggaran\r\n[Fungsional Umum -]\r\n( 06-04-2020 )', NULL, '16 thn,\r\n0 bln', '-', 'SMA Kejuruan\r\nMekanisasi Pertanian\r\nSMK Negeri I Sakra\r\n( 2002 )', NULL, NULL, NULL, 36, 'pria', 'islam', 'Saturday, April 1, 2023', 2032, 'e78ab5edc12d000ee2242204e6a744e1.jpg', NULL, '2023-01-12 09:26:48', '2023-01-12 09:26:48', NULL, NULL, NULL),
 ('867d2fa3-236c-470a-9f12-a33ce2f4b991', '198309302009011006', 'pns', 'HENDRA YANTO', 'Mataram', '1983-09-30', 'pegawai', 'Peng administrasi [Fungsional Umum -]( 04-09-2015 )', NULL, '13 thn,\r\n0 bln', '-', 'SMA IPS Paket C( 2006 )', NULL, NULL, NULL, 38, 'pria', 'islam', 'Tuesday, April 1, 2025', 2037, 'c9ad5d9a368ac4464cc22bd2a824d49e.jpg', 'http://localhost:5000/images/c9ad5d9a368ac4464cc22bd2a824d49e.jpg', '2023-01-12 09:26:48', '2023-01-12 04:35:32', 'c2df4423-fcab-4825-8ba8-648aecd9976b', 'b6b51f6f-3132-496a-88e0-1130065a0d72', '454adcee-d791-40dc-adb5-bf4d029e7736'),
 ('878ee9b2-84ee-4c97-b35b-a7758115462e', '197609041996032003', 'pns', 'SYAMSIAH', 'Utan Sumbawa', '1976-09-04', 'pegawai', 'Pengadministrasi\r\n[Fungsional Umum -]\r\n( 01-01-2019 )', NULL, '19 thn,\r\n10 bln', '-', 'SMA A.3/Ilmu Sosial Sma Muhamadiyah( 1995 )', NULL, NULL, NULL, 45, 'wanita', 'islam', '1 Oktober 2025', 2039, 'e66ffc2a9b3ad8bd670506d7f9245876.jpg', 'http://localhost:5000/images/e66ffc2a9b3ad8bd670506d7f9245876.jpg', '2023-01-12 09:26:50', '2023-01-12 04:59:38', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '1f30e9ae-9f1a-4026-86d7-9384ae70241b'),
@@ -353,7 +349,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('8E1B9302-D64F-FFA0-E8D1-5A23D9254D14', NULL, 'kontrak', 'Priyatna Pratama Saputra', '-', '-', 'pegawai', NULL, NULL, NULL, NULL, NULL, '910/39.a/BPKAD/2020', '001.22.19472.10-4', 'Bank NTB Syariah', 0, 'pria', 'islam', NULL, NULL, NULL, NULL, '2023-01-12 13:49:48', '2023-01-12 13:49:48', NULL, NULL, NULL),
 ('94465513-4CCD-2C24-71C4-4959317716DD', NULL, 'kontrak', 'Sopian Hariadi', '-', '-', 'pegawai', NULL, NULL, NULL, NULL, NULL, '910/02/BPKAD/2025', '002.02.27048.38-0', 'Bank NTB Syariah', 0, 'pria', 'islam', NULL, NULL, NULL, NULL, '2023-01-12 13:49:48', '2023-01-12 13:49:48', NULL, NULL, NULL),
 ('980deea6-393c-4969-9078-5fc11d1fd695', '197408122007012026', 'pns', 'SARIPATUN, SE', 'Utan Sumbawa', '1974-08-12', 'pegawai', 'Pengadministrasi\r\n[Fungsional Umum -]\r\n( 21-04-2016 )', NULL, '15 thn,\r\n9 bln', '-', 'Sarjana Akuntansi Sekolah Tinggi Ilmu Ekonomi Nasional ( 2014 )', NULL, NULL, NULL, 47, 'wanita', 'islam', 'Monday, April 1, 2024', 2030, '49e5c121fad9dd462a91a029ddc37947.jpg', 'http://localhost:5000/images/49e5c121fad9dd462a91a029ddc37947.jpg', '2023-01-12 09:26:50', '2023-01-12 02:14:38', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
-('984e03c1-a5b5-468d-8d52-7aa3a1c23ee2', '198103152006041013', 'pns', 'YUL HADIANSYAH, SE, MM', 'Bima', '1981-03-15', 'kasubag', 'Kepala Sub Bagian Program pada Sekretariat Badan Pengelolaan Keuangan Dan Aset Daerah\r\n[Struktural Jabatan Pengawas]\r\n( 06-02-2020 )', 'Sekretariat - Program', '14 thn,\r\n9 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat IV (Diklat PIM Tk. IV)\r\n( Diklat Pim.Tk.IV )\r\n[ Badan Pengembangan Sumber Daya Manusia Daerah ]\r\n( 2018 )', 'Pasca Sarjana Magister Manajemen Universitas Mataram( 2011 )', NULL, NULL, NULL, 40, 'pria', 'islam', 'Friday, April 1, 2022', 2039, '845bda781462599e9e403b5a3caa6fca.jpg', 'http://localhost:5000/images/845bda781462599e9e403b5a3caa6fca.jpg', '2023-01-12 09:26:50', '2023-01-12 04:55:10', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '988226b4-0cd4-4547-a218-25dd9c436520'),
+('984e03c1-a5b5-468d-8d52-7aa3a1c23ee2', '198103152006041013', 'pns', 'YUL HADIANSYAH, SE, MM', 'Bima', '1981-03-15', 'kasubag', 'Kepala Sub Bagian Program pada Sekretariat Badan Pengelolaan Keuangan Dan Aset Daerah\r\n[Struktural Jabatan Pengawas]\r\n( 06-02-2020 )', 'Sekretariat - Program', '14 thn,\r\n9 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat IV (Diklat PIM Tk. IV)\r\n( Diklat Pim.Tk.IV )\r\n[ Badan Pengembangan Sumber Daya Manusia Daerah ]\r\n( 2018 )', 'Pasca Sarjana Magister Manajemen Universitas Mataram( 2011 )', NULL, NULL, NULL, 40, 'pria', 'islam', 'Friday, April 1, 2022', 2039, '845bda781462599e9e403b5a3caa6fca.jpg', 'http://localhost:5000/images/845bda781462599e9e403b5a3caa6fca.jpg', '2023-01-12 09:26:50', '2023-08-29 02:10:58', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '0214478e-1aa1-42d4-8971-474b5c00cd5f'),
 ('9a376cac-006a-45cb-9635-f57f79896f66', '196912312008011013', 'pns', 'YE ALI, S.Sos', 'Lombok Timur', '1969-12-31', 'kasubag', 'Kepala Sub Bidang Rencana Kebutuhan dan Pengadaan BMD pada Bidang Pengelolaan Barang Milik Daerah\r\n[Struktural Jabatan Pengawas]\r\n( 22-04-2021 )', 'BMD - Rencana Kebutuhan dan Pengadaan', '13 thn,\r\n03 bln', 'Diklat Prajabatan Golongan II\r\n( - )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan Provinsi NTB ]\r\n( 2009 )', 'Sarjana Ilmu Administrasi Negara STIA  Mataram( 1997 )', NULL, NULL, NULL, 52, 'pria', 'islam', 'Monday, April 1, 2024', 2044, 'c0ef07a67d82cd4481a120f495b87524.jpg', 'http://localhost:5000/images/c0ef07a67d82cd4481a120f495b87524.jpg', '2023-01-12 09:26:50', '2023-01-12 03:47:24', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('9A37E3E6-C73D-CD5B-BAFD-823B2A816580', NULL, 'kontrak', 'Khaerul Afryadi', '-', '-', 'pegawai', 'Tenaga Kebersihan', NULL, 'null', NULL, 'null', '910/39.a/BPKAD/2020', '001.22.19473.10-8', 'Bank NTB Syariah', 0, 'pria', 'islam', NULL, NULL, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-12 13:49:50', '2023-01-12 08:07:39', NULL, NULL, '79530810-bc72-4bcd-9d45-a9180151abf6'),
 ('9a9678cb-d538-48fc-9f33-2015ce335fab', '197210161996032005', 'pns', 'LALE RIA ARYANI, S.E', 'Tanjung KLU', '1972-10-16', 'kasubag', 'Kepala Sub Bidang Pengolahan Data Dan Pembinaan Keuangan Kabupaten/Kota pada Bidang Bina Dan Evaluasi Keuangan Kabupaten/Kota\r\n[Struktural Jabatan Pengawas]\r\n( 06-02-2020 )', 'BEKK - Pengolahan Data dan Pembinaan Keuangan', '22 thn,\r\n10 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat IV (Diklat PIM Tk. IV)\r\n( Diklat Pim.Tk.IV )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan ]\r\n( 2015 )', 'Sarjana Akuntansi STIA 45 Mataram( 1997 )', NULL, NULL, NULL, 49, 'wanita', 'islam', '-', 2030, '89878c45c9dd3662704ebe63540917bf.jpg', 'http://localhost:5000/images/89878c45c9dd3662704ebe63540917bf.jpg', '2023-01-12 09:26:50', '2023-01-12 04:02:29', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8'),
@@ -366,7 +362,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('a463a36d-6fcd-427e-ac96-8bd45748016d', '196812312008011104', NULL, 'SAHDI, S. Sos', 'Batu Kembar', '1968-12-31', 'pegawai', 'Analis Data Laporan Keuangan [Fungsional Umum -] ( 01-01-2020 )', NULL, '18 thn, 5 bln', '-', 'Sarjana Ilmu Administrasi Negara STIA Mataram ( 1999 )', NULL, NULL, NULL, 54, 'pria', 'islam', '-', 2026, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-13 02:21:15', '2023-01-13 02:21:15', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', 'c639a8a5-9159-4c17-9b59-427865c6b4ed'),
 ('A8082AC3-6C3C-B55E-7FB3-560BBD332841', NULL, 'kontrak', 'Muhanim', 'Montong Rangah', '1988-09-12', 'pegawai', 'Tenaga Keamanan', NULL, '10 thn, 0 bln', NULL, '-', '910/39.a/BPKAD/2020', '001.22.19490.10-6', 'Bank NTB Syariah', 34, 'pria', 'islam', NULL, NULL, 'e857915fc7ab3346bd5f575267ab889e.jpg', 'http://localhost:5000/images/e857915fc7ab3346bd5f575267ab889e.jpg', '2023-01-12 13:49:48', '2023-01-12 08:28:54', NULL, NULL, '348e3315-b868-4eb1-8c1e-7f6d24857cca'),
 ('a8810c13-968d-4ae2-b437-1d56cf754f35', '198604142011012010', 'pns', 'MELLINDA ASTRIA, ST', 'Mataram', '1986-04-14', 'pegawai', 'Analis Pengelola Kekayaan Daerah\r\n[Fungsional Umum]\r\n( 01-01-2020 )', NULL, '10 thn,\r\n0 bln', 'Diklat Prajabatan Golongan III\r\n( - )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan Provinsi NTB ]\r\n( 2012 )', 'Sarjana Teknik Elektro Universitas Mataram( 2010 )', NULL, NULL, NULL, 35, 'wanita', 'islam', '1 Oktober 2024', 2037, 'cb646117f8629774d7af8179ee6e8dcf.jpg', 'http://localhost:5000/images/cb646117f8629774d7af8179ee6e8dcf.jpg', '2023-01-12 09:26:50', '2023-01-12 03:57:41', 'fe7ea2cc-0cb9-47c2-a88f-8683db745262', '3f98df91-9ec5-45a1-aee8-3a078355a0d8', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
-('a8e6d5d0-561f-4cd0-84ff-27d723b82ab9', '199309132016091003', NULL, 'ADYATMA YUDHA SUBRATA, S.STP', 'Mataram', '1993-09-13', 'pegawai', 'Analis Perencanaan Program [Fungsional Umum -] ( 11-08-2022 )', NULL, '06 thn, 00 bln', '-', 'Diploma IV Pembangunan dan Pemberdayaan IPDN ( 2016 )', NULL, NULL, NULL, 29, 'pria', 'islam', '1 Oktober 2025', 2051, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-13 02:51:02', '2023-01-13 02:51:02', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', 'e2c0325b-1ecb-453d-992a-37ddfeaff82d'),
+('a8e6d5d0-561f-4cd0-84ff-27d723b82ab9', '199309132016091003', 'pns', 'ADYATMA YUDHA SUBRATA, S.STP', 'Mataram', '1993-09-13', 'pegawai', 'Analis Perencanaan Program [Fungsional Umum -] ( 11-08-2022 )', NULL, '06 thn, 00 bln', '-', 'Diploma IV Pembangunan dan Pemberdayaan IPDN ( 2016 )', NULL, NULL, NULL, 29, 'pria', 'islam', '1 Oktober 2025', 2051, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-13 02:51:02', '2023-08-29 04:21:01', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', 'e2c0325b-1ecb-453d-992a-37ddfeaff82d'),
 ('AB34A947-0939-D159-0AFF-26BFC9167F2C', NULL, 'kontrak', 'Sarjan', '-', '-', 'pegawai', NULL, NULL, NULL, NULL, NULL, '910/39.c/BPKAD/2020', '001.22.18142.10-4', 'Bank NTB Syariah', 0, 'pria', 'islam', NULL, NULL, NULL, NULL, '2023-01-12 13:49:48', '2023-01-12 13:49:48', NULL, NULL, NULL),
 ('ab672982-6b5b-4d88-8895-9fb49b937b27', '198609122005012002', 'pns', 'HAIRUNNISAH', 'Mataram', '1986-09-12', 'pegawai', 'Peng administrasi [Fungsional Umum -]( 04-09-2015 )', NULL, '16 thn,\r\n0 bln', '-', 'S-1 Administrasi Negara STIA Mataram( 2020 )', NULL, NULL, NULL, 35, 'wanita', 'islam', 'Tuesday, April 1, 2025', 2044, '1cc814fd5d0b72d313c791194fe88e16.jpg', 'http://localhost:5000/images/1cc814fd5d0b72d313c791194fe88e16.jpg', '2023-01-12 09:26:50', '2023-01-12 03:52:07', '254f8ec9-5441-4749-acf9-da7b5043875e', '2973e6ce-4b11-4c04-8fc2-9492c5ca44f9', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('AEDCEC2A-9070-7491-7439-E0825B73AC04', NULL, 'kontrak', 'Loly Marissa Pratami', 'Alas', '2000-03-20', 'pegawai', 'Tenaga Administrasi', NULL, '1 thn, 0 bln', NULL, 'SMAN 7 Mataram', '910/02/BPKAD/2027', '001.02.08344.27-0', 'Bank NTB Syariah', 21, 'wanita', 'islam', NULL, NULL, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-12 13:49:48', '2023-01-13 02:15:54', NULL, NULL, '454adcee-d791-40dc-adb5-bf4d029e7736'),
@@ -396,7 +392,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('ce9e2e55-782e-49c4-ba12-5d7dc688ff9c', '197909042011011002', 'pns', 'SOFIAN HADI, S. Kom', 'Mataram', '1979-09-04', 'kasubag', 'Kepala Sub Bidang Anggaran Sektor Infrastruktur pada Bidang Anggaran\r\n[Struktural Jabatan Pengawas]\r\n( 06-02-2020 )', 'Anggaran - sektor Infrastruktur', '10 thn,\r\n0 bln', 'Diklat Prajabatan Golongan III\r\n( - )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan Provinsi NTB ]\r\n( 2012 )', 'SarjanaTeknik Informatika STMIK Bumigora Mataram( 2006 ) ', NULL, NULL, NULL, 42, 'pria', 'islam', 'Tuesday, April 1, 2025', 2033, '5a74d01d8d4a3357878d302b4e7f68a6.jpg', 'http://localhost:5000/images/5a74d01d8d4a3357878d302b4e7f68a6.jpg', '2023-01-12 09:26:50', '2023-01-12 02:24:44', 'fe7ea2cc-0cb9-47c2-a88f-8683db745262', '3f98df91-9ec5-45a1-aee8-3a078355a0d8', 'e2c0325b-1ecb-453d-992a-37ddfeaff82d'),
 ('cf65776e-e044-4811-8c89-ccc8b4b4b8d9', '197205152008011015', 'pns', 'LUK LUK IL MARJAN', 'Mataram', '1972-05-15', 'pegawai', 'Pengadministrasi pada UPTB Unit Pengelola Islamic Center\r\n[Fungsional Umum -]\r\n( 29-08-2017 )', NULL, '19 thn,\r\n0 bln', '-', 'SMA A.2/Biologi Sma Muhammadiyah( 1991 )', NULL, NULL, NULL, 49, 'pria', 'islam', 'Monday, April 1, 2024', 2036, '15590ac88e383ca52ed98888fe718295.jpg', 'http://localhost:5000/images/15590ac88e383ca52ed98888fe718295.jpg', '2023-01-12 09:26:50', '2023-01-12 03:49:23', 'b58eb1f4-55a4-4cae-9709-b50565c2a073', '9fd0fb38-c19d-43f7-8955-b09a95de1506', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('CFFD88FD-92E9-F829-A8AA-DF7DF27F0347', NULL, 'kontrak', 'Mely Aulia Yuliardini, A.Md', '-', '-', 'pegawai', 'Tenaga Administrasi', NULL, 'null', NULL, 'null', '910/39.a/BPKAD/2020', '001.22.19514.10-8', 'Bank NTB Syariah', 0, 'wanita', 'islam', NULL, NULL, 'ef96ab7d000acdebec0d58a73a69a231.jpg', 'http://localhost:5000/images/ef96ab7d000acdebec0d58a73a69a231.jpg', '2023-01-12 13:49:50', '2023-01-12 08:05:24', NULL, NULL, '4805423b-8d94-4c42-ac73-2b71dbe7c843'),
-('d0afbd74-c006-4240-96df-d1f1a430a025', '199709192018082001', NULL, 'BQ. NURUL AZIZA KAMAL, S.IP', 'Loteng', '1997-09-19', 'pegawai', 'Analis Pemeriksa Anggaran [Fungsional Umum -] ( 01-01-2021 )', NULL, '04 thn, 02 bln', '-', 'S1. Ilmu Pemerintahan - - ( 2018 )', NULL, NULL, NULL, 25, 'wanita', 'islam', '1 Oktober 2026', 2055, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:54:15', '2023-01-13 02:54:15', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', 'c639a8a5-9159-4c17-9b59-427865c6b4ed'),
+('d0afbd74-c006-4240-96df-d1f1a430a025', '199709192018082001', 'pns', 'BQ. NURUL AZIZA KAMAL, S.IP', 'Loteng', '1997-09-19', 'pegawai', 'Analis Pemeriksa Anggaran [Fungsional Umum -] ( 01-01-2021 )', NULL, '04 thn, 02 bln', '-', 'S1. Ilmu Pemerintahan - - ( 2018 )', NULL, NULL, NULL, 25, 'wanita', 'islam', '1 Oktober 2026', 2055, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:54:15', '2023-08-29 04:20:18', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', 'e2c0325b-1ecb-453d-992a-37ddfeaff82d'),
 ('d1f9a0c5-87fd-48ec-ae69-cea82516eab4', '197612312008011032', 'pns', 'KARYANO', 'Kr. Pande', '1976-12-31', 'pegawai', 'Operator Komputer\r\n[Fungsional Umum -]\r\n( 13-04-2017 )', NULL, '19 thn,\r\n0 bln', '-', 'SMA IPS Sman Cakranegara ( 1995 )', NULL, NULL, NULL, 45, 'pria', 'islam', 'Monday, April 1, 2024', 2040, '85c2fdf3c83a0992110ef1e2c94acfd1.jpg', 'http://localhost:5000/images/85c2fdf3c83a0992110ef1e2c94acfd1.jpg', '2023-01-12 09:26:50', '2023-01-12 05:08:47', 'b58eb1f4-55a4-4cae-9709-b50565c2a073', '9fd0fb38-c19d-43f7-8955-b09a95de1506', '454adcee-d791-40dc-adb5-bf4d029e7736'),
 ('d2d9d80c-50d9-43ec-8b9f-dbfca533c043', '198412312009011015', 'pns', 'HANAPI, SE', 'Medana Lotim', '1984-12-31', 'pegawai', 'Peng administrasi [Fungsional Umum -]( 04-09-2015 )', NULL, '11 thn,\r\n6 bln', '-', 'Sarjana Ekonomi Pembangunan UNIZAR( 2017 )', NULL, NULL, NULL, 37, 'pria', 'islam', '1 Oktober 2023', 2039, 'b6a3ab5cb3f4649bcd097d40c65330c2.jpg', 'http://localhost:5000/images/b6a3ab5cb3f4649bcd097d40c65330c2.jpg', '2023-01-12 09:26:50', '2023-01-12 04:23:14', '254f8ec9-5441-4749-acf9-da7b5043875e', '2973e6ce-4b11-4c04-8fc2-9492c5ca44f9', 'f60b5439-5d63-4c1e-8f28-9e4940619244');
 INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `tanggal_lahir`, `nama_jabatan`, `jabatan`, `initial_jabatan`, `masa_kerja_golongan`, `diklat`, `pendidikan`, `no_sk`, `no_rekening`, `nama_rekening`, `umur`, `jenis_kelamin`, `agama`, `kenaikan_pangkat`, `batas_pensiun`, `foto`, `url`, `createdAt`, `updatedAt`, `pangkatId`, `golonganId`, `bidangId`) VALUES
@@ -456,28 +452,44 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
-('2TyYS4WT7ygZ9osmoMSOebCWRgXJLNFa', '2023-08-22 17:30:28', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:30:28', '2023-08-21 17:30:28'),
-('46Y8hAoCm3250rZ-h9x8LMRfbnJuRse3', '2023-08-22 17:57:55', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:57:55', '2023-08-21 17:57:55'),
-('4LCGFaPG5MTDn5_Ys2pvTtgB375WtOoh', '2023-08-22 17:56:52', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:56:52', '2023-08-21 17:56:52'),
-('5jvvqx-a4Dcflp3W3vUAsCfjcmcLyKIa', '2023-08-21 21:05:12', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-20 21:05:11', '2023-08-20 21:05:12'),
-('9_VNyVf-PbXkHOicpZ2vIrDywOX9RQ80', '2023-08-22 18:05:20', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 18:05:20', '2023-08-21 18:05:20'),
-('awZd8Oiey9dsmm3Lnq5iteqRptzXxohk', '2023-08-22 17:31:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:31:36', '2023-08-21 17:31:36'),
-('B-MdDN62es-GM3EKZxIoMllvuPruz0G8', '2023-08-22 17:50:23', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:50:23', '2023-08-21 17:50:23'),
-('b8dVO5bqKxAvqwqKHC0qf8Znw8QJ8zKj', '2023-08-22 17:54:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:54:00', '2023-08-21 17:54:00'),
-('BB8PDBReB2WZ00UKJFhfguZHD0RffuSd', '2023-08-22 18:11:41', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-20 16:22:52', '2023-08-21 18:11:41'),
-('d6w-SbPuF9wzdHVvLRXSoxVR88EkOJsY', '2023-08-22 17:54:18', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:54:18', '2023-08-21 17:54:18'),
-('ednwSeAw6-ODIsMHqhrir_S8BAdJ9hRM', '2023-08-22 17:41:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:41:09', '2023-08-21 17:41:09'),
-('FGf48UaHKWNBeYBNkHjtYuytjeDeScjt', '2023-08-22 17:30:23', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:30:23', '2023-08-21 17:30:23'),
-('jtuki4oSPlGi0Fj_0mqirAzLeQkcOKho', '2023-08-22 18:38:43', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-21 18:01:41', '2023-08-21 18:38:43'),
-('LL9-E-g75CTfg8a4CWjdU3Y02XLqOF7p', '2023-08-22 17:52:20', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:52:20', '2023-08-21 17:52:20'),
-('LLHrsG8VHb7qNRC6wnQKlM-Mg5FJLfuG', '2023-08-22 17:56:53', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:56:52', '2023-08-21 17:56:53'),
-('NORsiItohoZiOfa17SxhJ5CjNTgVclsX', '2023-08-22 17:49:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:49:36', '2023-08-21 17:49:36'),
-('o_Mm3X_yiV6EZAFqVKsqYH95fJOJlH_B', '2023-08-22 17:40:24', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:40:24', '2023-08-21 17:40:24'),
-('Pzrn8RK1bqUkj-4vhcxSpc1CXFakwbsc', '2023-08-22 18:01:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 18:01:39', '2023-08-21 18:01:39'),
-('Rme0iwfuKX_IcAmdqjE1Fr8W_LixRG-c', '2023-08-22 17:56:52', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:56:52', '2023-08-21 17:56:52'),
-('rSMC9eV3RD62C-TxcR5sOlInw48L6eUP', '2023-08-22 17:30:34', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:30:34', '2023-08-21 17:30:34'),
-('Ubl_DHDIj2K01N9S-r-KBGXA6O8MTXYU', '2023-08-22 18:01:41', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 18:01:41', '2023-08-21 18:01:41'),
-('xPt0SU5KNgO_senD7IyAQPJ5ulHRnjT2', '2023-08-22 17:50:21', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-21 17:50:22', '2023-08-21 17:50:22');
+('0cP1hD-nIAEiamss-ABlQdTtFrPvczmq', '2023-08-30 08:04:03', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:03', '2023-08-29 08:04:03'),
+('0Q0UD_g5cdMB6cjPkWIub4ov96-x62cA', '2023-08-30 07:28:45', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:28:45', '2023-08-29 07:28:45'),
+('3-quzx2x8_HhbFLa4yetTnpvKAeC2rxG', '2023-08-30 02:10:52', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 02:10:52', '2023-08-29 02:10:52'),
+('68vzruUVvfDSR7GZuKVh6WgiYjD7R0AA', '2023-08-30 04:04:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-29 02:02:16', '2023-08-29 04:04:00'),
+('6hKObqijk1cEPt-pD2BIcWJOqv-PzG1Y', '2023-08-30 08:10:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:10:39', '2023-08-29 08:10:39'),
+('8B5T_m-_AY-NaAcOBWaZLG7ZjzqleW2k', '2023-08-30 08:04:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:27', '2023-08-29 08:04:27'),
+('8P10_fpNx9mV7OXL4g7_USDWdc0Cqjfc', '2023-08-30 01:45:48', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 01:45:48', '2023-08-29 01:45:48'),
+('9dZd98DF_KCHrnkRdluSvMFD_6i37ug5', '2023-08-30 08:23:06', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:06', '2023-08-29 08:23:06'),
+('9FiKaRGj_XUAbswGs9-hzCYQ1cPPVH36', '2023-08-29 08:24:55', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-28 08:24:55', '2023-08-28 08:24:55'),
+('9yBjLQZXhbl7U_nP3E0LckAzFuTyBtaQ', '2023-08-30 08:21:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:21:59', '2023-08-29 08:21:59'),
+('bI90xHs7TRhPkQtKSE3wezqdPux8Nymo', '2023-08-30 08:23:26', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:26', '2023-08-29 08:23:26'),
+('BNpd9a1gqOFUzr1qabdOldCVAzWwQkgZ', '2023-08-30 08:23:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:15', '2023-08-29 08:23:15'),
+('CY1LbZJCp5CRKNR8_2C3gee4_KrN97uI', '2023-08-30 07:33:50', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:50', '2023-08-29 07:33:50'),
+('d8584530PUWgW9S6LMeObaM6T3z73mx7', '2023-08-30 08:13:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:13:39', '2023-08-29 08:13:39'),
+('fu4r-yRsZzaP381Ngp1Z5HJfqjrnCaRj', '2023-08-30 08:19:31', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:19:31', '2023-08-29 08:19:31'),
+('gSLbRD95BaCFYeTCwxCxUyeV3DtP1ysF', '2023-08-30 01:45:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 01:45:36', '2023-08-29 01:45:36'),
+('hcADjQJwJoyMEAnxU7WC-5tZWWcyICPo', '2023-08-30 08:05:40', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:05:40', '2023-08-29 08:05:40'),
+('hkG5sXK3QZBygkPeA4U2AkX1dS4DX3l9', '2023-08-30 07:32:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:32:57', '2023-08-29 07:32:57'),
+('HluJ6qf03bpMxxBsv1lydQ6ZAV8Qdf5x', '2023-08-30 08:23:19', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-28 02:21:41', '2023-08-29 08:23:19'),
+('IauxZZ_q1jPT4JATlAgn3ewSfJtRyVR2', '2023-08-30 08:04:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:15', '2023-08-29 08:04:15'),
+('ie8K9CMTdW9Ihuxb3AcD6UfIwzizguhQ', '2023-08-30 07:33:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:09', '2023-08-29 07:33:09'),
+('j0f_BIsnfjlgfDGtgoehZsTqw4pA-An4', '2023-08-30 08:15:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:15:57', '2023-08-29 08:15:57'),
+('jEpxBLftPcYrk50L5gmSmL0eeTVDU9j1', '2023-08-30 04:20:18', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 04:20:18', '2023-08-29 04:20:18'),
+('Js7Hfbma2Lo9yuCEFCThfwOqlzwJgQ6v', '2023-08-30 08:03:32', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:03:32', '2023-08-29 08:03:32'),
+('KUiL7mjFAM_uer8_sKy7JNNArTesc26R', '2023-08-30 08:21:06', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:21:06', '2023-08-29 08:21:06'),
+('Msg_aEQMmNbWfVD5XDS6SEUxtdCBcmKG', '2023-08-30 07:33:16', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:16', '2023-08-29 07:33:16'),
+('n94oTDqyIIMi5YOWdrHA3WXeDypDyVjO', '2023-08-30 08:24:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:24:01', '2023-08-29 08:24:01'),
+('ng-HFUVECsD4tV_MxL6iueQLIWuuA4Tn', '2023-08-30 08:16:18', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:16:18', '2023-08-29 08:16:18'),
+('p0ikVsSYam8MKl6NmB7skzqiCeso73Y3', '2023-08-30 08:13:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:13:09', '2023-08-29 08:13:09'),
+('pEgNXCQVw8CnYPRA1eQTlX_yGMGcudYY', '2023-08-30 08:03:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:03:57', '2023-08-29 08:03:57'),
+('q4M2N-e7WRUT5WZ4Zp-d6VDUIGjZ26G5', '2023-08-30 08:04:32', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:32', '2023-08-29 08:04:32'),
+('QbC35t71pDgoktNsmmN7WEhoFNUXsr5L', '2023-08-30 07:30:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:30:27', '2023-08-29 07:30:27'),
+('WjHYdrvbfJQz97YASI69-CGR1fjaT17c', '2023-08-30 08:15:48', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:15:48', '2023-08-29 08:15:48'),
+('y6xgeKgbFxVr50xdD5BV6MEWSQKurs11', '2023-08-30 08:19:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:19:16', '2023-08-29 08:19:16'),
+('YBzN_Tk0A96gOEYRq5Z9FhtIARSJH64R', '2023-08-30 02:10:58', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 02:10:58', '2023-08-29 02:10:58'),
+('yLu6_uRIDjIsIAd7fhfbigmCB_4EmTVN', '2023-08-29 08:24:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-28 08:24:09', '2023-08-28 08:24:09'),
+('Z1OevIQQsypg3kfnbfazwQMFL-Qv7wGE', '2023-08-30 08:04:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:59', '2023-08-29 08:04:59'),
+('ZkKUfqzdrXP92N29RGsVap1-iXzH7xqd', '2023-08-30 04:21:01', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 04:21:01', '2023-08-29 04:21:01');
 
 -- --------------------------------------------------------
 
@@ -548,16 +560,44 @@ INSERT INTO `users` (`id`, `nama_lengkap`, `level`, `pegawaiId`, `username`, `pa
 --
 
 --
+-- Indeks untuk tabel `bidang`
+--
+ALTER TABLE `bidang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `golongan`
 --
 ALTER TABLE `golongan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `pangkat`
+--
+ALTER TABLE `pangkat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pangkatId` (`pangkatId`),
+  ADD KEY `golonganId` (`golonganId`),
+  ADD KEY `bidangId` (`bidangId`);
+
+--
 -- Indeks untuk tabel `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`sid`);
+
+--
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pegawaiId` (`pegawaiId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
