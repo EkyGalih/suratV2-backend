@@ -173,22 +173,16 @@ export const updatePegawai = async (req, res) => {
     const pegawai = Pegawai.findOne({
         where: {
             id: req.params.id
-        },
-        include: [{
-            model: Bidang
-        }, {
-            model: Golongan
-        }, {
-            model: Pangkat
-        }]
+        }
     });
+    console.log(req.params.id);
+    console.log(pegawai);
     if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
 
     let fileName = "";
     if (req.files === null) {
         fileName = pegawai.foto;
     } else {
-        console.log(pegawai);
         const file = req.files.foto;
         const fileSize = file.data.length;
         const ext = path.extname(file.name);
