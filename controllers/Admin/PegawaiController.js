@@ -1,4 +1,6 @@
 import { Op } from "sequelize";
+import path from "path";
+import fs from "fs";
 import Bidang from "../../models/BidangModel.js";
 import Golongan from "../../models/GolonganModel.js";
 import Pangkat from "../../models/PangkatModel.js";
@@ -12,9 +14,11 @@ export const getPegawai = async (req, res) => {
         const offset = limit * page;
         const totalRows = await Pegawai.count({
             where: {
-                [Op.or]: [{name:{
-                    [Op.like]: '%' + search + '%'
-                }},{
+                [Op.or]: [{
+                    name: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
                     nip: {
                         [Op.like]: '%' + search + '%'
                     }
@@ -34,9 +38,11 @@ export const getPegawai = async (req, res) => {
         const totalPage = Math.ceil(totalRows / limit);
         const result = await Pegawai.findAll({
             where: {
-                [Op.or]: [{name:{
-                    [Op.like]: '%' + search + '%'
-                }},{
+                [Op.or]: [{
+                    name: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
                     nip: {
                         [Op.like]: '%' + search + '%'
                     }
@@ -91,6 +97,7 @@ export const getPegawaiById = async (req, res) => {
 }
 
 export const createPegawai = async (req, res) => {
+    if (req.files === null) return res.status(400).json({ msg: "No File Uploaded" });
     const {
         nip,
         jenis_pegawai,
@@ -111,52 +118,94 @@ export const createPegawai = async (req, res) => {
         agama,
         kenaikan_pangkat,
         batas_pensiun,
-        foto,
-        url,
         pangkatId,
         golonganId,
         bidangId
     } = req.body;
-    try {
-        await Pegawai.create({
-            nip: nip,
-            jenis_pegawai: jenis_pegawai,
-            name: name,
-            tempat_lahir: tempat_lahir,
-            tanggal_lahir: tanggal_lahir,
-            nama_jabatan: nama_jabatan,
-            jabatan: jabatan,
-            initial_jabatan: initial_jabatan,
-            masa_kerja_golongan: masa_kerja_golongan,
-            diklat: diklat,
-            pendidikan: pendidikan,
-            no_sk: no_sk,
-            no_rekening: no_rekening,
-            nama_rekening: nama_rekening,
-            umur: umur,
-            jenis_kelamin: jenis_kelamin,
-            agama: agama,
-            kenaikan_pangkat: kenaikan_pangkat,
-            batas_pensiun: batas_pensiun,
-            foto: foto,
-            url: url,
-            pangkatId: pangkatId,
-            golonganId: golonganId,
-            bidangId: bidangId
-        });
-        res.status(200).json({ msg: "Pegawai dibuat!" });
-    } catch (error) {
-        res.status(400).json({ msg: error.message });
-    }
+
+    const file = req.files.foto;
+    const fileSize = file.data.length;
+    const ext = path.extname(file.name);
+    const fileName = file.md5 + ext;
+    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+    const allowedType = ['.png', 'jpg', 'jpeg'];
+
+    if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
+    if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB" });
+
+    file.mv(`./public/images/${fileName}`, async (err) => {
+        if (err) return res.status(500).json({ msg: err.message });
+        try {
+            await Pegawai.create({
+                nip: nip,
+                jenis_pegawai: jenis_pegawai,
+                name: name,
+                tempat_lahir: tempat_lahir,
+                tanggal_lahir: tanggal_lahir,
+                nama_jabatan: nama_jabatan,
+                jabatan: jabatan,
+                initial_jabatan: initial_jabatan,
+                masa_kerja_golongan: masa_kerja_golongan,
+                diklat: diklat,
+                pendidikan: pendidikan,
+                no_sk: no_sk,
+                no_rekening: no_rekening,
+                nama_rekening: nama_rekening,
+                umur: umur,
+                jenis_kelamin: jenis_kelamin,
+                agama: agama,
+                kenaikan_pangkat: kenaikan_pangkat,
+                batas_pensiun: batas_pensiun,
+                foto: fileName,
+                url: url,
+                pangkatId: pangkatId,
+                golonganId: golonganId,
+                bidangId: bidangId
+            });
+            res.status(200).json({ msg: "Pegawai dibuat!" });
+        } catch (error) {
+            res.status(400).json({ msg: error.message });
+        }
+    });
 }
 
 export const updatePegawai = async (req, res) => {
     const pegawai = Pegawai.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [{
+            model: Bidang
+        }, {
+            model: Golongan
+        }, {
+            model: Pangkat
+        }]
     });
     if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
+
+    let fileName = "";
+    if (req.files === null) {
+        fileName = pegawai.foto;
+    } else {
+        console.log(pegawai);
+        const file = req.files.foto;
+        const fileSize = file.data.length;
+        const ext = path.extname(file.name);
+        fileName = file.md5 + ext;
+        const allowedType = ['.png', 'jpg', 'jpeg'];
+
+        if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
+        if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB" });
+
+        const filepath = `./public/images/${pegawai.foto}`;
+        fs.unlinkSync(filepath);
+
+        file.mv(`./public/images/${fileName}`, (err) => {
+            if (err) return res.status(500).json({ msg: err.message });
+        });
+    }
+
     const {
         nip,
         jenis_pegawai,
@@ -177,12 +226,12 @@ export const updatePegawai = async (req, res) => {
         agama,
         kenaikan_pangkat,
         batas_pensiun,
-        foto,
-        url,
         pangkatId,
         golonganId,
         bidangId
     } = req.body;
+    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+
     try {
         await Pegawai.update({
             nip: nip,
@@ -204,7 +253,7 @@ export const updatePegawai = async (req, res) => {
             agama: agama,
             kenaikan_pangkat: kenaikan_pangkat,
             batas_pensiun: batas_pensiun,
-            foto: foto,
+            foto: fileName,
             url: url,
             pangkatId: pangkatId,
             golonganId: golonganId,
@@ -228,6 +277,8 @@ export const deletePegawai = async (req, res) => {
     });
     if (!pegawai) return res.status(404).json({ msg: "Pegawai tidak ditemukan!" });
     try {
+        const filepath = `./public/images/${pegawai.foto}`;
+        fs.unlinkSync(filepath);
         await Pegawai.destroy({
             where: {
                 id: pegawai.id

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import session from "express-session";
+import fileUpload from "express-fileupload";
 import dotenv from "dotenv";
 dotenv.config();
 import db from "./config/Database.js";
@@ -65,6 +66,8 @@ app.listen(process.env.APP_PORT, () => {
  * @return fungsi agar dapat menerima data dalam bentuk json
  */
 app.use(express.json());
+app.use(fileUpload());
+app.use(express.static("public"));
 app.use(AuthRoute);
 app.use(UserRoute);
 app.use(PegawaiRoute);
