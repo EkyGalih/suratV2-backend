@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 29 Agu 2023 pada 08.29
--- Versi server: 5.7.33
--- Versi PHP: 8.1.7
+-- Generation Time: Aug 29, 2023 at 03:37 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,18 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bidang`
+-- Table structure for table `bidang`
 --
 
 CREATE TABLE `bidang` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_bidang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_bidang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `bidang`
+-- Dumping data for table `bidang`
 --
 
 INSERT INTO `bidang` (`id`, `nama_bidang`, `createdAt`, `updatedAt`) VALUES
@@ -51,14 +51,14 @@ INSERT INTO `bidang` (`id`, `nama_bidang`, `createdAt`, `updatedAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `distribusi`
+-- Table structure for table `distribusi`
 --
 
 CREATE TABLE `distribusi` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bidangId` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `suratId` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_baca` enum('unread','read','') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unread',
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bidangId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `suratId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_baca` enum('unread','read','') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unread',
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -66,42 +66,42 @@ CREATE TABLE `distribusi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `file_surat`
+-- Table structure for table `file_surat`
 --
 
 CREATE TABLE `file_surat` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `file` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path_file` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lampiran` text COLLATE utf8mb4_unicode_ci,
-  `path_lampiran` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `suratId` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path_file` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lampiran` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `path_lampiran` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `suratId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `file_surat`
+-- Dumping data for table `file_surat`
 --
 
 INSERT INTO `file_surat` (`id`, `file`, `path_file`, `lampiran`, `path_lampiran`, `suratId`, `createdAt`, `updatedAt`) VALUES
-('30d343da-1237-48e0-b7f8-6ba9dc8afdce', 'out-Program - (SEKERTARIAT)-6e3647d9d5e236e2b1f9f7cbd55cc331.jpeg', 'upload/file_surat/keluar/', 'lampiran/lamp-out-Program - (SEKERTARIAT)-bc40a016fc053f8220348f72bd0fdfcb.jpeg', 'upload/file_surat/keluar/', 'a8061f63-70f9-41d2-8f67-92335b80335c', '2023-08-14 12:53:10', '2023-08-14 12:54:41');
+('30d343da-1237-48e0-b7f8-6ba9dc8afdce', 'out-Program - (SEKERTARIAT)-6e3647d9d5e236e2b1f9f7cbd55cc331.jpeg', 'upload/file_surat/keluar/', 'lampiran/lamp-out-Program - (SEKERTARIAT)-bc40a016fc053f8220348f72bd0fdfcb.jpeg', 'upload/file_surat/keluar/', 'a8061f63-70f9-41d2-8f67-92335b80335c', '2023-08-14 04:53:10', '2023-08-14 04:54:41');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `golongan`
+-- Table structure for table `golongan`
 --
 
 CREATE TABLE `golongan` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_golongan` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_golongan` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `golongan`
+-- Dumping data for table `golongan`
 --
 
 INSERT INTO `golongan` (`id`, `nama_golongan`, `createdAt`, `updatedAt`) VALUES
@@ -125,17 +125,17 @@ INSERT INTO `golongan` (`id`, `nama_golongan`, `createdAt`, `updatedAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -157,18 +157,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pangkat`
+-- Table structure for table `pangkat`
 --
 
 CREATE TABLE `pangkat` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_pangkat` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_pangkat` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `pangkat`
+-- Dumping data for table `pangkat`
 --
 
 INSERT INTO `pangkat` (`id`, `nama_pangkat`, `createdAt`, `updatedAt`) VALUES
@@ -193,41 +193,41 @@ INSERT INTO `pangkat` (`id`, `nama_pangkat`, `createdAt`, `updatedAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip` varchar(18) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `jenis_pegawai` enum('pns','kontrak','p3k','ptt') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tempat_lahir` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_lahir` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_jabatan` enum('pegawai','kaban','kabag','kasubag','sekban') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pegawai',
-  `jabatan` text COLLATE utf8mb4_unicode_ci,
-  `initial_jabatan` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `masa_kerja_golongan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `diklat` text COLLATE utf8mb4_unicode_ci,
-  `pendidikan` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `no_sk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `no_rekening` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nama_rekening` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `umur` int(11) NOT NULL,
-  `jenis_kelamin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `agama` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kenaikan_pangkat` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `batas_pensiun` int(11) DEFAULT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nip` varchar(18) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenis_pegawai` enum('pns','kontrak','p3k','ptt') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tempat_lahir` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_lahir` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_jabatan` enum('pegawai','kaban','kabag','kasubag','sekban') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pegawai',
+  `jabatan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `initial_jabatan` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `masa_kerja_golongan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `diklat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `pendidikan` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `no_sk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `no_rekening` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_rekening` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `umur` int NOT NULL,
+  `jenis_kelamin` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agama` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kenaikan_pangkat` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `batas_pensiun` int DEFAULT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `pangkatId` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `golonganId` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bidangId` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `pangkatId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `golonganId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bidangId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `tanggal_lahir`, `nama_jabatan`, `jabatan`, `initial_jabatan`, `masa_kerja_golongan`, `diklat`, `pendidikan`, `no_sk`, `no_rekening`, `nama_rekening`, `umur`, `jenis_kelamin`, `agama`, `kenaikan_pangkat`, `batas_pensiun`, `foto`, `url`, `createdAt`, `updatedAt`, `pangkatId`, `golonganId`, `bidangId`) VALUES
@@ -277,7 +277,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('36f706fe-415e-44ba-8e65-e61243d61c6f', '199105012014062002', 'pns', 'BAIQ MEYDA NINDI ANJANI, S.STP', 'Mataram', '1991-05-01', 'pegawai', 'Pengolah Data\r\n[Fungsional Umum -]\r\n( 31-10-2018 )', NULL, '6 thn,\r\n7 bln', '-', 'Diploma IV Pembangunan dan PemberdayaanInstitut Pemerintahan Dalam Negeri( 2014 )', NULL, NULL, NULL, 30, 'wanita', 'islam', '1 Oktober 2023', 2042, '86272fd66f377eab1e651f4e6a070036.jpg', 'http://localhost:5000/images/86272fd66f377eab1e651f4e6a070036.jpg', '2023-01-12 09:26:50', '2023-01-12 04:57:04', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '4805423b-8d94-4c42-ac73-2b71dbe7c843'),
 ('386a5dad-586c-4c4d-b013-7041f14fa6c8', '196503271986032014', 'pns', 'Hj. BAIQ LILIK YOESVIE ANDAYANI', 'Mataram', '1965-03-27', 'pegawai', 'Pengolah Data [Fungsional Umum -]( 04-09-2015 )', NULL, '34 thn,\r\n10 bln', 'Pendidikan dan Pelatihan Administrasi Umum (DIKLAT ADUM)\r\n( Diklat Pim.Tk.IV )\r\n[ Badan Pendidikan dan Pelatihan Pemerintah Provinsi Nusa Tenggara ]\r\n( 1996 )', 'SMA IPA SMAN- 1( 1984 )', NULL, NULL, NULL, 56, 'wanita', 'islam', '-', 2024, 'a81fa7ee4fc5feced45a1000c01a2fe0.jpg', 'http://localhost:5000/images/a81fa7ee4fc5feced45a1000c01a2fe0.jpg', '2023-01-12 09:26:50', '2023-01-12 03:45:40', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('398f72e6-20b9-4aa1-9cfd-0fa01b0fc0b1', '196812311993032063', 'pns', 'NI WAYAN MUDIANI, SE', 'Susut', '1968-12-31', 'pegawai', 'Analis Keuangan\r\n[Fungsional Umum -]\r\n( 01-01-2020 )', NULL, '22 thn,\r\n10 bln', '-', 'Sarjana Manajemen Keuangan Stie 45( 2004 )', NULL, NULL, NULL, 53, 'wanita', 'hindu', '-', 2026, '989f47dae5a2fcefcb21c0fe7a6fa939.jpg', 'http://localhost:5000/images/989f47dae5a2fcefcb21c0fe7a6fa939.jpg', '2023-01-12 09:26:50', '2023-01-12 04:05:47', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8'),
-('3a427f2f-1183-4058-b5e2-5bc27de30f24', '198012252009012002', NULL, 'EMA MARYATI, SE', 'Teros Lotim', '1980-12-25', 'pegawai', 'Analis Perencanaan Anggran [Fungsional Umum -] ( 01-01-2021 )', NULL, '15 thn, 11 bln', '-', 'Sarjana Manajemen SDM Unram ( 2013 )', NULL, NULL, NULL, 42, 'wanita', 'islam', '1 April 2024', 2038, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:44:56', '2023-01-13 02:44:56', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
+('3a427f2f-1183-4058-b5e2-5bc27de30f24', '198012252009012002', 'pns', 'EMA MARYATI, SE', 'Teros Lotim', 'undefined', 'pegawai', 'Analis Perencanaan Anggran [Fungsional Umum -] ( 01-01-2021 )', 'Analis Perencanaan Anggran [Fungsional Umum -] ( 01-01-2021 )', '15 thn, 11 bln', '-', 'Sarjana Manajemen SDM Unram ( 2013 )', 'null', 'null', 'null', 42, 'wanita', 'islam', '1 April 2024', 2038, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:44:56', '2023-08-29 15:29:00', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('3B5B786E-EC15-D696-77C1-901E0A689C0F', NULL, 'kontrak', 'Azmi Embara Muspa', '-', '-', 'pegawai', 'null', NULL, 'null', NULL, 'null', '910/02/BPKAD/2026', '1610006635234', 'Bank Mandiri', 0, 'pria', 'islam', NULL, NULL, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-12 13:49:48', '2023-01-13 02:03:41', NULL, NULL, 'c639a8a5-9159-4c17-9b59-427865c6b4ed'),
 ('3b98401b-2c0e-449a-a331-0d92a1c1ac4e', '197810132008012017', 'pns', 'ATNILA ERYTHRINA, SE, M.Ec.Dev', 'Mataram', '1978-10-13', 'pegawai', 'Pengumpul dan Pengolah Data pada UPTB Balai Pemanfaatan dan Pengamanan Aset Daerah\r\n[Fungsional Umum -]\r\n( 01-01-2019 )', NULL, '13 thn,\r\n0 bln', '-', 'Sarjana Magister Ekonomi Pembangunan Universitas Gadjah Mada( 2018 )', NULL, NULL, NULL, 43, 'wanita', 'islam', 'Monday, April 1, 2024', 2032, 'a5134755cca6a2203cacbeee59882feb.jpg', 'http://localhost:5000/images/a5134755cca6a2203cacbeee59882feb.jpg', '2023-01-12 09:26:50', '2023-01-12 03:58:16', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('3D4B8835-AC85-29FB-47DC-FC259F8BF13C', NULL, 'kontrak', 'Septina Marliyani, SE', 'Mataram', '1991-09-03', 'pegawai', 'Tenaga Administrasi', NULL, '8 Thn, 0 bln', NULL, 'Sarjana Ekonomi Universitas mataram (2013)', '910/24/BPKAD/2020', '001.22.19465.10-0', 'Bank NTB Syariah', 31, 'wanita', 'islam', NULL, NULL, 'bc149205def130c1349c030e90e26133.jpg', 'http://localhost:5000/images/bc149205def130c1349c030e90e26133.jpg', '2023-01-12 13:49:49', '2023-01-12 06:23:59', NULL, NULL, '1f30e9ae-9f1a-4026-86d7-9384ae70241b'),
@@ -337,7 +337,6 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('80f8cd54-1620-499d-b48e-d14b720172c9', '196912311989031039', NULL, 'Drs. ERVAN ANWAR, MM', 'Lotim', '1969-12-12', 'kabag', 'Kepala Bidang Pengelolaan Barang Milik Daerah [Struktural Jabatan Administrator] ( 06-10-2021 )', 'BMD', '28 thn, 0 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat III (Diklatpim Tk. III)\r\n( Diklat Pim.Tk.III )\r\n[ Badan DIKLAT ]\r\n( 2005 )', 'Pasca Sarjana Magister Manajemen Universitas Mataram ( 2013 )', NULL, NULL, NULL, 53, 'pria', 'islam', '-', 2027, 'e78ab5edc12d000ee2242204e6a744e1.jpg', 'http://localhost:5000/images/e78ab5edc12d000ee2242204e6a744e1.jpg', '2023-01-13 02:17:55', '2023-01-13 02:17:55', 'a65b2c45-0752-47e7-9425-46da8f40b992', '7d3eb832-db8e-4b53-8bdb-3045ead025b4', '79530810-bc72-4bcd-9d45-a9180151abf6'),
 ('8167c563-ba98-4ac6-892c-c99b888049a9', '196612311993031137', 'pns', 'SAEFUDIN', 'Kenawa Loteng', '1966-12-31', 'pegawai', 'Pengolah Data\r\n[Fungsional Umum -]\r\n( 04-09-2015 )', NULL, '22 thn,\r\n10 bln', '-', 'SMA IPA SMAN 1( 1988 )', NULL, NULL, NULL, 55, 'pria', 'islam', '-', 2034, '5edee54b5e8af4c02c3b6f857fd2e42a.jpg', 'http://localhost:5000/images/5edee54b5e8af4c02c3b6f857fd2e42a.jpg', '2023-01-12 09:26:50', '2023-01-12 04:11:07', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8'),
 ('8239053a-e8d2-420d-be90-6e554c489dbf', '196810191989021002', 'pns', 'LALU SATRIYAWIRYASANTANA', 'Lotim', '1971-09-27', 'pegawai', 'Pengadministrasi\r\n[Fungsional Umum -]\r\n( 04-09-2015 )', NULL, '17 thn,\r\n01 bln', '-', 'SMK\r\n-\r\n\r\n( 1993 )', NULL, NULL, NULL, 50, 'pria', 'islam', '-', 2035, 'e78ab5edc12d000ee2242204e6a744e1.jpg', NULL, '2023-01-12 09:26:48', '2023-01-12 09:26:48', NULL, NULL, NULL),
-('839597ac-b5c3-4731-879f-ca2409264aea', '', 'pns', 'tesss', 'dasan lekong', 'undefined', 'pegawai', '', '', '', '', '', '', '', '', 33, 'pria', 'islam', '', 2045, '9470fdefb70678791d53ca2732d512b6.png', 'http://localhost:5000/images/undefined', '2023-08-29 07:18:25', '2023-08-29 08:13:09', '', '', '0214478e-1aa1-42d4-8971-474b5c00cd5f'),
 ('84cd7026-426b-4a6f-ae23-3fe3ad9f62b5', '196408021991031007', 'pns', 'LALU ADRYAN SAPUTRAWAN', 'Sakra Lotim', '1985-01-21', 'pegawai', 'Pengolah Data pada Bidang Anggaran\r\n[Fungsional Umum -]\r\n( 06-04-2020 )', NULL, '16 thn,\r\n0 bln', '-', 'SMA Kejuruan\r\nMekanisasi Pertanian\r\nSMK Negeri I Sakra\r\n( 2002 )', NULL, NULL, NULL, 36, 'pria', 'islam', 'Saturday, April 1, 2023', 2032, 'e78ab5edc12d000ee2242204e6a744e1.jpg', NULL, '2023-01-12 09:26:48', '2023-01-12 09:26:48', NULL, NULL, NULL),
 ('867d2fa3-236c-470a-9f12-a33ce2f4b991', '198309302009011006', 'pns', 'HENDRA YANTO', 'Mataram', '1983-09-30', 'pegawai', 'Peng administrasi [Fungsional Umum -]( 04-09-2015 )', NULL, '13 thn,\r\n0 bln', '-', 'SMA IPS Paket C( 2006 )', NULL, NULL, NULL, 38, 'pria', 'islam', 'Tuesday, April 1, 2025', 2037, 'c9ad5d9a368ac4464cc22bd2a824d49e.jpg', 'http://localhost:5000/images/c9ad5d9a368ac4464cc22bd2a824d49e.jpg', '2023-01-12 09:26:48', '2023-01-12 04:35:32', 'c2df4423-fcab-4825-8ba8-648aecd9976b', 'b6b51f6f-3132-496a-88e0-1130065a0d72', '454adcee-d791-40dc-adb5-bf4d029e7736'),
 ('878ee9b2-84ee-4c97-b35b-a7758115462e', '197609041996032003', 'pns', 'SYAMSIAH', 'Utan Sumbawa', '1976-09-04', 'pegawai', 'Pengadministrasi\r\n[Fungsional Umum -]\r\n( 01-01-2019 )', NULL, '19 thn,\r\n10 bln', '-', 'SMA A.3/Ilmu Sosial Sma Muhamadiyah( 1995 )', NULL, NULL, NULL, 45, 'wanita', 'islam', '1 Oktober 2025', 2039, 'e66ffc2a9b3ad8bd670506d7f9245876.jpg', 'http://localhost:5000/images/e66ffc2a9b3ad8bd670506d7f9245876.jpg', '2023-01-12 09:26:50', '2023-01-12 04:59:38', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', '1f30e9ae-9f1a-4026-86d7-9384ae70241b'),
@@ -373,7 +372,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 ('b34d326c-c93b-4a4a-9507-52d15827db09', '198108292005012016', 'pns', 'AYU MULYATI, S.E. MM', 'Ampenan Mataram', '1981-08-29', 'kasubag', 'Kepala Sub Bidang Evaluasi APBD Kabupaten/Kota Wilayah I pada Bidang Bina Dan Evaluasi Keuangan Kabupaten/Kota\r\n[Struktural Jabatan Pengawas]\r\n( 06-02-2020 )', 'BEKK - Evaluasi APBD Kab/Kota', '16 thn,\r\n0 bln', 'Pendidikan dan Pelatihan Kepemimpinan Tingkat IV (Diklat PIM Tk. IV)\r\n( Diklat Pim.Tk.IV )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan ]\r\n( 2015 )', 'Pasca Sarjana Magister Manajemen Universitas Mataram( 2010 )', NULL, NULL, NULL, 40, 'wanita', 'islam', 'Tuesday, April 1, 2025', 2039, '6af40713015f4db7883b7e66e4619554.jpg', 'http://localhost:5000/images/6af40713015f4db7883b7e66e4619554.jpg', '2023-01-12 09:26:50', '2023-01-12 04:10:33', '7972c67a-4415-4568-b76f-5a022dfac1f7', 'd0b1c422-fdb6-4c8f-99ca-70e4b909a700', '741b3b5a-2cf3-490a-b7d4-7fd8cffb2de8'),
 ('b34d9ea9-5f9d-4287-94d3-48ba7384b7c5', '197910172009012003', NULL, 'INDRA WAHYUNI, SE.,M.Ak', 'Mataram', '1979-10-17', 'kasubag', 'Kepala Sub Bidang Akuntansi dan Pelaporan Sektor Infrastruktur pada Bidang Akuntansi dan Pelaporan BPKAD Provinsi NTB [Struktural Jabatan Pengawas] ( 22-04-2021 )', 'Akuntansi - Sektor Infrastruktur', '12 thn, 03 bln', '-', 'Pasca Sarjana Magister Akuntansi Universitas Mataram ( 2015 )', NULL, NULL, NULL, 43, 'wanita', 'islam', '1 April 2025', 2037, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:24:16', '2023-01-13 02:24:16', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '3f98df91-9ec5-45a1-aee8-3a078355a0d8', '4805423b-8d94-4c42-ac73-2b71dbe7c843'),
 ('b37d27f9-0df4-4150-9fbe-4763a3e8a60a', '198302112010012003', 'pns', 'FATMAWATI', 'Teros, Lotim', '1983-02-11', 'pegawai', 'Pengadministrasi [Fungsional Umum -] ( 04-09-2015 )', NULL, '16 thn, 10 bln', 'Diklat Prajabatan Golongan I dan II\r\n( - )\r\n[ Badan Kepegawaian Daerah dan Pendidikan Pelatihan Provinsi NTB ]\r\n( 2011 )', 'SMA IPA SMUN 3 ( 2001 )', NULL, NULL, NULL, 38, 'wanita', 'islam', 'Friday, April 1, 2022', 2041, '2332d11a30c2c1d5fbe4826057daa5e0.jpg', 'http://localhost:5000/images/2332d11a30c2c1d5fbe4826057daa5e0.jpg', '2023-01-12 04:33:10', '2023-01-12 04:33:10', 'c2df4423-fcab-4825-8ba8-648aecd9976b', 'b6b51f6f-3132-496a-88e0-1130065a0d72', 'f60b5439-5d63-4c1e-8f28-9e4940619244'),
-('b6525d26-420f-43d3-8cd0-9558d8b4c449', '198106292010012004', NULL, 'NINA YUNI MARLISA, SE', 'Sidoarjo', '1981-06-29', 'pegawai', 'Kasubag Tata Usaha [Struktural -] ( 14-10-2022 )', NULL, '18 thn, 00 bln', '-', 'Sarjana Ekonomi Akuntansi Universitas Malang ( 2003 )', NULL, NULL, NULL, 41, 'wanita', 'islam', '-', 2039, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:28:36', '2023-01-13 02:28:36', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
+('b6525d26-420f-43d3-8cd0-9558d8b4c449', '198106292010012004', 'pns', 'NINA YUNI MARLISA, SE', 'Sidoarjo', 'undefined', 'pegawai', 'Kasubag Tata Usaha [Struktural -] ( 14-10-2022 )', 'Kasubag Tata Usaha [Struktural -] ( 14-10-2022 )', '18 thn, 00 bln', '-', 'Sarjana Ekonomi Akuntansi Universitas Malang ( 2003 )', 'null', 'null', 'null', 41, 'wanita', 'islam', '-', 2039, 'b69cdb6fd5640592268681f2ecccaa22.jpg', 'http://localhost:5000/images/b69cdb6fd5640592268681f2ecccaa22.jpg', '2023-01-13 02:28:36', '2023-08-29 15:35:52', 'bb42d0b6-bdd4-428c-b094-4c964f9fb288', '262834f6-d889-4631-8559-c90779bd00b7', '0627251b-0e2f-4609-be16-b8abce89ff6c'),
 ('b698608a-9cf5-46a6-bc6d-855b3a413197', '197212092008012010', 'pns', 'BAIQ WIRESARI, A.Md', 'Pengembur', '1972-12-09', 'pegawai', 'Peng administrasi Data [Fungsional Umum -]( 30-12-2016 )', NULL, '17 thn,\r\n0 bln', '-', 'Diploma III Manajemen Akuntansi Akademi Manajemen Mataram( 1994 )', NULL, NULL, NULL, 49, 'wanita', 'islam', 'Monday, April 1, 2024', 2036, '100985f2e09c9429ac014121ae5cda80.jpg', 'http://localhost:5000/images/100985f2e09c9429ac014121ae5cda80.jpg', '2023-01-12 09:26:50', '2023-01-12 02:20:38', 'e9a45da9-c277-48f2-b12d-e1ea560660f7', '7f84bdda-a908-4f9e-a976-3ee533fb70fd', 'e2c0325b-1ecb-453d-992a-37ddfeaff82d'),
 ('B70203D0-6253-43B0-D1F6-8CD0B102EEBA', NULL, 'kontrak', 'Sukriawan', 'Lombas Dasan Baru', '1983-10-04', 'pegawai', 'Tenaga Keamanan', NULL, '15 thn, 0 bln', NULL, '-', '910/39.a/BPKAD/2020', '001.22.19476.10-1', 'Bank NTB Syariah', 47, 'pria', 'islam', NULL, NULL, '52a976163d22633a427e6a72c631d25f.jpg', 'http://localhost:5000/images/52a976163d22633a427e6a72c631d25f.jpg', '2023-01-12 13:49:48', '2023-01-12 08:26:44', NULL, NULL, '348e3315-b868-4eb1-8c1e-7f6d24857cca'),
 ('B9A2D28E-4FBB-ACF6-0557-9F5B2F73C027', NULL, 'kontrak', 'Ahmad Nadji, S.Kom', 'Makkah', '1992-07-17', 'pegawai', 'Operator Komputer', NULL, '7 thn, 0 bln', NULL, 'Sarjana Teknik Informatika STMIK Bumigora(2016)', '910/39.a/BPKAD/2020', '001.22.19738.10-6', 'Bank NTB Syariah', 31, 'pria', 'islam', NULL, NULL, '2f6f60e1d442b6886c696542c28cf3b3.jpg', 'http://localhost:5000/images/2f6f60e1d442b6886c696542c28cf3b3.jpg', '2023-01-12 13:49:50', '2023-01-12 06:42:01', NULL, NULL, '1f30e9ae-9f1a-4026-86d7-9384ae70241b'),
@@ -436,7 +435,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `jenis_pegawai`, `name`, `tempat_lahir`, `ta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sessions`
+-- Table structure for table `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -448,100 +447,143 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `sessions`
+-- Dumping data for table `sessions`
 --
 
 INSERT INTO `sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
 ('0cP1hD-nIAEiamss-ABlQdTtFrPvczmq', '2023-08-30 08:04:03', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:03', '2023-08-29 08:04:03'),
+('0mr4fulRmxHAAoie4qVlnN0qta3oPTBe', '2023-08-30 14:45:26', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:45:26', '2023-08-29 14:45:26'),
 ('0Q0UD_g5cdMB6cjPkWIub4ov96-x62cA', '2023-08-30 07:28:45', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:28:45', '2023-08-29 07:28:45'),
+('2rJfYgjb_VEaihOd-pjI6u0bXxAdDQKO', '2023-08-30 14:29:22', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:29:22', '2023-08-29 14:29:22'),
+('2xAEE3Ktr416WW_PyfMp4C16GwSG1xwr', '2023-08-30 14:04:56', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:04:56', '2023-08-29 14:04:56'),
 ('3-quzx2x8_HhbFLa4yetTnpvKAeC2rxG', '2023-08-30 02:10:52', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 02:10:52', '2023-08-29 02:10:52'),
+('37VML3NNQYaroIoPfPtSnICKPPQ8Ni39', '2023-08-30 14:15:05', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:15:05', '2023-08-29 14:15:05'),
+('3RfQmlvkLVawk_EYDPLGSr4NfH9b21dM', '2023-08-30 14:18:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:18:57', '2023-08-29 14:18:57'),
 ('68vzruUVvfDSR7GZuKVh6WgiYjD7R0AA', '2023-08-30 04:04:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-29 02:02:16', '2023-08-29 04:04:00'),
 ('6hKObqijk1cEPt-pD2BIcWJOqv-PzG1Y', '2023-08-30 08:10:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:10:39', '2023-08-29 08:10:39'),
+('77-WLj--FaeJRC_c4lMU6GK-wHkFGAtm', '2023-08-30 15:36:02', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-29 14:03:36', '2023-08-29 15:36:02'),
 ('8B5T_m-_AY-NaAcOBWaZLG7ZjzqleW2k', '2023-08-30 08:04:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:27', '2023-08-29 08:04:27'),
 ('8P10_fpNx9mV7OXL4g7_USDWdc0Cqjfc', '2023-08-30 01:45:48', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 01:45:48', '2023-08-29 01:45:48'),
 ('9dZd98DF_KCHrnkRdluSvMFD_6i37ug5', '2023-08-30 08:23:06', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:06', '2023-08-29 08:23:06'),
-('9FiKaRGj_XUAbswGs9-hzCYQ1cPPVH36', '2023-08-29 08:24:55', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-28 08:24:55', '2023-08-28 08:24:55'),
 ('9yBjLQZXhbl7U_nP3E0LckAzFuTyBtaQ', '2023-08-30 08:21:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:21:59', '2023-08-29 08:21:59'),
+('AufT5sQx0onPPy8L3IFW5_q46OwfqvDD', '2023-08-30 14:15:30', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:15:30', '2023-08-29 14:15:30'),
 ('bI90xHs7TRhPkQtKSE3wezqdPux8Nymo', '2023-08-30 08:23:26', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:26', '2023-08-29 08:23:26'),
 ('BNpd9a1gqOFUzr1qabdOldCVAzWwQkgZ', '2023-08-30 08:23:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:23:15', '2023-08-29 08:23:15'),
+('Bq4cVfA_o-FLa8HmxJJ67sDPrZF5JnyK', '2023-08-30 14:32:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:32:09', '2023-08-29 14:32:09'),
+('cIZPg9OrySjSrUchM8SGARNwVJnCNijk', '2023-08-30 14:26:24', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:26:24', '2023-08-29 14:26:24'),
 ('CY1LbZJCp5CRKNR8_2C3gee4_KrN97uI', '2023-08-30 07:33:50', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:50', '2023-08-29 07:33:50'),
 ('d8584530PUWgW9S6LMeObaM6T3z73mx7', '2023-08-30 08:13:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:13:39', '2023-08-29 08:13:39'),
+('dKlTNL6EfseL4gSNZ1ZqKZ95s0mKQF8A', '2023-08-30 14:04:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:04:27', '2023-08-29 14:04:27'),
+('e24ekCvDkpjJhNxV_70KWkywS2pw6G0d', '2023-08-30 14:26:47', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:26:47', '2023-08-29 14:26:47'),
+('ess38J4NQI_TBzuYOh5yFldlI3mzqDg4', '2023-08-30 14:31:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:31:57', '2023-08-29 14:31:57'),
+('eXkJotL0lre0l4rsWYEVH9BOtODZGpUy', '2023-08-30 15:29:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 15:29:00', '2023-08-29 15:29:00'),
 ('fu4r-yRsZzaP381Ngp1Z5HJfqjrnCaRj', '2023-08-30 08:19:31', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:19:31', '2023-08-29 08:19:31'),
 ('gSLbRD95BaCFYeTCwxCxUyeV3DtP1ysF', '2023-08-30 01:45:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 01:45:36', '2023-08-29 01:45:36'),
 ('hcADjQJwJoyMEAnxU7WC-5tZWWcyICPo', '2023-08-30 08:05:40', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:05:40', '2023-08-29 08:05:40'),
+('hCgCKvmmPm7wHrH0JGY7-ppnanH1ZyBk', '2023-08-30 14:03:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:03:57', '2023-08-29 14:03:57'),
 ('hkG5sXK3QZBygkPeA4U2AkX1dS4DX3l9', '2023-08-30 07:32:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:32:57', '2023-08-29 07:32:57'),
 ('HluJ6qf03bpMxxBsv1lydQ6ZAV8Qdf5x', '2023-08-30 08:23:19', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"4\"}', '2023-08-28 02:21:41', '2023-08-29 08:23:19'),
+('i6JpFssYXGXviwuTc0iVua8maJ4ZW8E2', '2023-08-30 14:30:44', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:30:45', '2023-08-29 14:30:45'),
 ('IauxZZ_q1jPT4JATlAgn3ewSfJtRyVR2', '2023-08-30 08:04:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:15', '2023-08-29 08:04:15'),
 ('ie8K9CMTdW9Ihuxb3AcD6UfIwzizguhQ', '2023-08-30 07:33:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:09', '2023-08-29 07:33:09'),
+('ihiALVqVi2ursCHGN7JT_EoVl6lAuCyW', '2023-08-30 14:25:17', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:25:17', '2023-08-29 14:25:17'),
+('iSEGDBKHS0ct_FuQy_U2iPaUEkiFnuKT', '2023-08-30 15:35:52', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 15:35:52', '2023-08-29 15:35:52'),
 ('j0f_BIsnfjlgfDGtgoehZsTqw4pA-An4', '2023-08-30 08:15:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:15:57', '2023-08-29 08:15:57'),
+('J6aUvqJOnj0Zm57ueAVVelkwLyF4vYbX', '2023-08-30 14:07:02', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:07:02', '2023-08-29 14:07:02'),
+('j7UlAliDoMerUssriBgR1Uoqmw4Shinr', '2023-08-30 14:31:35', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:31:35', '2023-08-29 14:31:35'),
 ('jEpxBLftPcYrk50L5gmSmL0eeTVDU9j1', '2023-08-30 04:20:18', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 04:20:18', '2023-08-29 04:20:18'),
 ('Js7Hfbma2Lo9yuCEFCThfwOqlzwJgQ6v', '2023-08-30 08:03:32', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:03:32', '2023-08-29 08:03:32'),
+('Kayx3a7Q2zDHd9dimzvLu_hxqCTAhfeY', '2023-08-30 14:08:44', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:08:44', '2023-08-29 14:08:44'),
 ('KUiL7mjFAM_uer8_sKy7JNNArTesc26R', '2023-08-30 08:21:06', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:21:06', '2023-08-29 08:21:06'),
+('L9SAnEChUFWsFlhuv7AJAgN6tQbbfxzU', '2023-08-30 14:29:33', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:29:33', '2023-08-29 14:29:33'),
+('lLNjGfsonGLjBUT9HODjrGC0FHGn5J31', '2023-08-30 14:47:24', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:47:24', '2023-08-29 14:47:24'),
+('Lltw5cwrVmlhDiNx4VViqKWnEq4mH_Sa', '2023-08-30 14:27:44', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:27:44', '2023-08-29 14:27:44'),
+('LYvWp-BZbp9jAJjO9kAdXvw_FL-URUQS', '2023-08-30 14:28:14', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:28:14', '2023-08-29 14:28:14'),
+('m0frIsuYlrWzsNsFs9Sj2t9Fr7h_DEP3', '2023-08-30 14:20:43', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:20:43', '2023-08-29 14:20:43'),
+('MePHdQiymz6Nb_a-opxOsD8YIUHP6c75', '2023-08-30 14:10:07', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:10:07', '2023-08-29 14:10:07'),
 ('Msg_aEQMmNbWfVD5XDS6SEUxtdCBcmKG', '2023-08-30 07:33:16', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:33:16', '2023-08-29 07:33:16'),
+('N6sC2afrx-i_ad_7Elzlg_KXQ1KTIV1f', '2023-08-30 14:43:44', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:43:44', '2023-08-29 14:43:44'),
 ('n94oTDqyIIMi5YOWdrHA3WXeDypDyVjO', '2023-08-30 08:24:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:24:01', '2023-08-29 08:24:01'),
 ('ng-HFUVECsD4tV_MxL6iueQLIWuuA4Tn', '2023-08-30 08:16:18', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:16:18', '2023-08-29 08:16:18'),
+('nuqw34jy7elTTNlQV946FPwQ-XfiZO09', '2023-08-30 14:07:13', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:07:13', '2023-08-29 14:07:13'),
+('nzXS3RIaWgcTicCoKs06EtrE7smu7sHB', '2023-08-30 14:11:25', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:11:25', '2023-08-29 14:11:25'),
+('nZZ9ji2rZQQNV86andcE-C-2n2FzYKSe', '2023-08-30 14:26:39', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:26:39', '2023-08-29 14:26:39'),
+('oPOanOQtgRcf2jPSxpzY0t7ViYo1AlKf', '2023-08-30 14:42:37', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:42:37', '2023-08-29 14:42:37'),
 ('p0ikVsSYam8MKl6NmB7skzqiCeso73Y3', '2023-08-30 08:13:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:13:09', '2023-08-29 08:13:09'),
 ('pEgNXCQVw8CnYPRA1eQTlX_yGMGcudYY', '2023-08-30 08:03:57', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:03:57', '2023-08-29 08:03:57'),
+('Q0S0EcLbk_4RgeA18zyHDJJN2xzy0sDM', '2023-08-30 14:03:36', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:03:36', '2023-08-29 14:03:36'),
 ('q4M2N-e7WRUT5WZ4Zp-d6VDUIGjZ26G5', '2023-08-30 08:04:32', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:32', '2023-08-29 08:04:32'),
 ('QbC35t71pDgoktNsmmN7WEhoFNUXsr5L', '2023-08-30 07:30:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 07:30:27', '2023-08-29 07:30:27'),
+('qdBpVsALmaEA1H_iAVvrghPqstp-uyfQ', '2023-08-30 14:04:10', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:04:10', '2023-08-29 14:04:10'),
+('qvFjABKZAswsJUUj8GFTC-KseNTkxk8U', '2023-08-30 14:27:20', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:27:20', '2023-08-29 14:27:20'),
+('qvx0Sfjwm2U6kmBq632eLo0ihkMdZQFT', '2023-08-30 14:09:13', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:09:13', '2023-08-29 14:09:13'),
+('rGxsLuk-kUrGpXUSIVF4x6Ya1br9K3Kp', '2023-08-30 14:13:24', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:13:24', '2023-08-29 14:13:24'),
+('Skbvi-IdYykYht2xVl86xaEbDkBWHpQn', '2023-08-30 14:10:33', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:10:33', '2023-08-29 14:10:33'),
+('SmFZQ7JLv4pgE1lvSZb5qx_3VQ9-qr_2', '2023-08-30 14:43:17', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:43:17', '2023-08-29 14:43:17'),
+('tQ1gHf-V9xEYOVEGFLWRXvHPWK_vVQi4', '2023-08-30 14:42:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:42:27', '2023-08-29 14:42:27'),
+('tWVjcY92oSMZDnZipKpdLnQHS3xfCX_a', '2023-08-30 14:40:38', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:40:38', '2023-08-29 14:40:38'),
+('Uph30JRvJ0fJoIFR-R7Nekj6keMPvu7H', '2023-08-30 14:15:56', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:15:56', '2023-08-29 14:15:56'),
+('vLKC710yMyBwi6VvmLDupXbHkDHgAk6q', '2023-08-30 14:27:00', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:27:00', '2023-08-29 14:27:00'),
 ('WjHYdrvbfJQz97YASI69-CGR1fjaT17c', '2023-08-30 08:15:48', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:15:48', '2023-08-29 08:15:48'),
+('wjO_bH82q3sI1l18AS14ycww-srHhtJj', '2023-08-30 14:14:42', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:14:42', '2023-08-29 14:14:42'),
+('xj4HwcipJ-87RVlPdVMhO3IWdVribnr0', '2023-08-30 14:44:26', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:44:26', '2023-08-29 14:44:26'),
+('XubKw5rUy0CGE4yUF8Xa2gnW3Dkb5-j2', '2023-08-30 14:42:55', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 14:42:55', '2023-08-29 14:42:55'),
 ('y6xgeKgbFxVr50xdD5BV6MEWSQKurs11', '2023-08-30 08:19:15', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:19:16', '2023-08-29 08:19:16'),
 ('YBzN_Tk0A96gOEYRq5Z9FhtIARSJH64R', '2023-08-30 02:10:58', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 02:10:58', '2023-08-29 02:10:58'),
-('yLu6_uRIDjIsIAd7fhfbigmCB_4EmTVN', '2023-08-29 08:24:09', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-28 08:24:09', '2023-08-28 08:24:09'),
 ('Z1OevIQQsypg3kfnbfazwQMFL-Qv7wGE', '2023-08-30 08:04:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 08:04:59', '2023-08-29 08:04:59'),
 ('ZkKUfqzdrXP92N29RGsVap1-iXzH7xqd', '2023-08-30 04:21:01', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-08-29 04:21:01', '2023-08-29 04:21:01');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat`
+-- Table structure for table `surat`
 --
 
 CREATE TABLE `surat` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_surat` enum('masuk','keluar') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kategori` enum('biasa','sppd','undangan') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_surat` enum('masuk','keluar') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` enum('biasa','sppd','undangan') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_terima` date DEFAULT NULL,
-  `asal_surat` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `asal_surat` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_surat` date NOT NULL,
-  `no_surat` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `perihal` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `diteruskan` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `isi_disposisi` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_surat` enum('proggress','unread','read','done') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bidangId` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_surat` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `perihal` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `diteruskan` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `isi_disposisi` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_surat` enum('proggress','unread','read','done') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bidangId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `surat`
+-- Dumping data for table `surat`
 --
 
 INSERT INTO `surat` (`id`, `jenis_surat`, `kategori`, `tgl_terima`, `asal_surat`, `tgl_surat`, `no_surat`, `perihal`, `diteruskan`, `isi_disposisi`, `status_surat`, `bidangId`, `createdAt`, `updatedAt`) VALUES
-('a8061f63-70f9-41d2-8f67-92335b80335c', 'keluar', 'biasa', NULL, 'Program - (SEKERTARIAT)', '2023-08-15', '900/11.A/VIII/BPKAD/2023', 'permohonan pendanaan di bidang', NULL, NULL, 'proggress', '988226b4-0cd4-4547-a218-25dd9c436520', '2023-08-14 04:53:10', '2023-08-14 21:54:58');
+('a8061f63-70f9-41d2-8f67-92335b80335c', 'keluar', 'biasa', NULL, 'Program - (SEKERTARIAT)', '2023-08-15', '900/11.A/VIII/BPKAD/2023', 'permohonan pendanaan di bidang', NULL, NULL, 'proggress', '988226b4-0cd4-4547-a218-25dd9c436520', '2023-08-13 20:53:10', '2023-08-14 13:54:58');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_lengkap` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` enum('admin','pimpinan','agendaris','user') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pegawaiId` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_lengkap` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` enum('admin','pimpinan','agendaris','user') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pegawaiId` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `nama_lengkap`, `level`, `pegawaiId`, `username`, `password`, `foto`, `remember_token`, `createdAt`, `updatedAt`) VALUES
@@ -560,25 +602,40 @@ INSERT INTO `users` (`id`, `nama_lengkap`, `level`, `pegawaiId`, `username`, `pa
 --
 
 --
--- Indeks untuk tabel `bidang`
+-- Indexes for table `bidang`
 --
 ALTER TABLE `bidang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `golongan`
+-- Indexes for table `distribusi`
+--
+ALTER TABLE `distribusi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bidangId` (`bidangId`),
+  ADD KEY `suratId` (`suratId`);
+
+--
+-- Indexes for table `file_surat`
+--
+ALTER TABLE `file_surat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `suratId` (`suratId`);
+
+--
+-- Indexes for table `golongan`
 --
 ALTER TABLE `golongan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pangkat`
+-- Indexes for table `pangkat`
 --
 ALTER TABLE `pangkat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`),
@@ -587,17 +644,55 @@ ALTER TABLE `pegawai`
   ADD KEY `bidangId` (`bidangId`);
 
 --
--- Indeks untuk tabel `sessions`
+-- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`sid`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `surat`
+--
+ALTER TABLE `surat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `pegawaiId` (`pegawaiId`);
+  ADD KEY `pegawaiId` (`pegawaiId`),
+  ADD KEY `pegawaiId_2` (`pegawaiId`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `distribusi`
+--
+ALTER TABLE `distribusi`
+  ADD CONSTRAINT `distribusi_ibfk_1` FOREIGN KEY (`bidangId`) REFERENCES `bidang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `distribusi_ibfk_2` FOREIGN KEY (`suratId`) REFERENCES `surat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `file_surat`
+--
+ALTER TABLE `file_surat`
+  ADD CONSTRAINT `file_surat_ibfk_1` FOREIGN KEY (`suratId`) REFERENCES `surat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`pangkatId`) REFERENCES `pangkat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pegawai_ibfk_2` FOREIGN KEY (`bidangId`) REFERENCES `bidang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pegawai_ibfk_3` FOREIGN KEY (`golonganId`) REFERENCES `golongan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`pegawaiId`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
