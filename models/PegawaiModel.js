@@ -143,7 +143,10 @@ const Pegawai = db.define('pegawai', {
     },
     bidangId: {
         type: DataTypes.STRING(40),
-        allowNull: true
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     }
 }, {
     freezeTableName: true
