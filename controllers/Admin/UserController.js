@@ -71,7 +71,7 @@ export const getUserById = async (req, res) => {
             },
             include: [{
                 model: Pegawai,
-                attributes: ['nip', 'name']
+                attributes: ['nip', 'name', 'foto', 'url']
             }]
         });
         res.status(200).json(response);
