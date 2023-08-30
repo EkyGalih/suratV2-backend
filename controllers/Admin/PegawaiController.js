@@ -6,6 +6,26 @@ import Golongan from "../../models/GolonganModel.js";
 import Pangkat from "../../models/PangkatModel.js";
 import Pegawai from "../../models/PegawaiModel.js";
 
+export const getAllPegawai = async (req, res) => {
+    try {
+        const response = await Pegawai.findAll({
+            include: [{
+                model: Bidang,
+                attributes: ['nama_bidang']
+            }, {
+                model: Golongan,
+                attributes: ['nama_golongan']
+            }, {
+                model: Pangkat,
+                attributes: ['nama_pangkat']
+            }],
+        });
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+}
+
 export const getPegawai = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 0;

@@ -1,5 +1,5 @@
 
-GET http://localhost:5000/pegawai/ab672982-6b5b-4d88-8895-9fb49b937b27
+GET http://localhost:5000/pegawais
 ###
 GET http://localhost:5000/users?search_query=sam&page=0&limit=10
 
