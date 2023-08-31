@@ -71,7 +71,7 @@ export const getUserById = async (req, res) => {
             },
             include: [{
                 model: Pegawai,
-                attributes: ['nip', 'name', 'foto', 'url']
+                attributes: ['nip', 'name', 'foto', 'url', 'bidangId', 'pangkatId', 'golonganId', 'tempat_lahir', 'tanggal_lahir', 'umur', 'jabatan', 'nama_jabatan', 'jenis_kelamin', 'agama', 'jenis_pegawai', 'masa_kerja_golongan']
             }]
         });
         res.status(200).json(response);
