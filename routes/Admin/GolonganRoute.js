@@ -10,10 +10,10 @@ import { adminOnly, verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
-router.get('/golongan', verifyUser, adminOnly, getGolongan);
-router.get('/golongan/:id', verifyUser, adminOnly, getGolonganById);
-router.post('/golongan', verifyUser, adminOnly, createGolongan);
-router.patch('/golongan/:id', verifyUser, adminOnly, updateGolongan);
-router.delete('/golongan/:id', verifyUser, adminOnly, deleteGolongan);
+router.get('/admin/golongan', verifyUser, adminOnly, getGolongan);
+router.get('/admin/golongan/:id', verifyUser, adminOnly, getGolonganById);
+router.post('/admin/golongan', verifyUser, adminOnly, createGolongan);
+router.patch('/admin/golongan/:id', verifyUser, adminOnly, updateGolongan);
+router.delete('/admin/golongan/:id', verifyUser, adminOnly, deleteGolongan);
 
 export default router;

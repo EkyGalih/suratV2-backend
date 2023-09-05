@@ -47,10 +47,7 @@ const Surat = db.define('surat', {
     },
     no_surat: {
         type: DataTypes.STRING(30),
-        allowNull: true,
-        validate: {
-            notEmpty: false
-        }
+        allowNull: true
     },
     perihal: {
         type: DataTypes.STRING(100),
@@ -61,17 +58,11 @@ const Surat = db.define('surat', {
     },
     diteruskan: {
         type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-            notEmpty: false
-        }
+        allowNull: true
     },
     isi_disposisi: {
         type: DataTypes.STRING(100),
-        allowNull: true,
-        validate: {
-            notEmpty: false
-        }
+        allowNull: true
     },
     status_surat: {
         type: DataTypes.ENUM({
