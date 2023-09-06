@@ -10,10 +10,10 @@ import { adminOnly, verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
-router.get('/admin/bidang', verifyUser, getBidang);
-router.get('/admin/bidang/:id', verifyUser, getBidangById);
-router.post('/admin/bidang', verifyUser, adminOnly, createBidang);
-router.patch('/admin/bidang/:id', verifyUser, adminOnly, updateBidang);
-router.delete('/admin/bidang/:id', verifyUser, adminOnly, deleteBidang);
+router.get('/admin/bidang', getBidang);
+router.get('/admin/bidang/:id', getBidangById);
+router.post('/admin/bidang', createBidang);
+router.patch('/admin/bidang/:id', updateBidang);
+router.delete('/admin/bidang/:id', deleteBidang);
 
 export default router;

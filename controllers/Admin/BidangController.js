@@ -32,9 +32,9 @@ export const createBidang = async (req, res) => {
         await Bidang.create({
             nama_bidang: nama_bidang
         });
-        res.status(200).json({ msg: 'Bidang dibuat!' });
+        res.status(200).json({ msg: 'Bidang dibuat!', st: 'ok' });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        res.status(400).json({ msg: error.message, st: 'fail' });
     }
 }
 
@@ -44,7 +44,7 @@ export const updateBidang = async (req, res) => {
             id: req.params.id
         }
     });
-    if (!bidang) return res.status(404).json({ msg: "Bidang tidak ditemukan!" });
+    if (!bidang) return res.status(404).json({ msg: "Bidang tidak ditemukan!", st: 'fail' });
     const { nama_bidang } = req.body;
     try {
         await Bidang.update({
@@ -54,9 +54,9 @@ export const updateBidang = async (req, res) => {
                 id: bidang.id
             }
         });
-        res.status(200).json({ msg: 'Bidang dibuat!' });
+        res.status(200).json({ msg: 'Bidang diperbaharui!', st: 'ok' });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        res.status(400).json({ msg: error.message, st: 'fail' });
     }
 }
 

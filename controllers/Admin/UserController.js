@@ -112,7 +112,7 @@ export const updateUser = async (req, res) => {
     } else {
         hashPassword = await argon2.hash(password);
     }
-    if (password !== confPassword) return res.status(400).json({ msg: 'password tidak cocokan' });
+    if (password !== confPassword) return res.status(400).json({ msg: 'password tidak cocokan', st: 'fail' });
     try {
         await Users.update({
             nama_lengkap: nama_lengkap,
@@ -125,9 +125,9 @@ export const updateUser = async (req, res) => {
                 id: user.id
             }
         });
-        res.status(200).json({ msg: "User diperbaharui" });
+        res.status(200).json({ msg: "User diperbaharui", st: 'ok' });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        res.status(400).json({ msg: error.message, st: "fail" });
     }
 }
 
