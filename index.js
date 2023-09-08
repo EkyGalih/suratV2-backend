@@ -6,14 +6,18 @@ import dotenv from "dotenv";
 dotenv.config();
 import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
+
+// route admin
 import UserRoute from "./routes/Admin/UserRoute.js";
 import PegawaiRoute from "./routes/Admin/PegawaiRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import BidangRoute from "./routes/Admin/BidangRoute.js";
 import PangkatRoute from "./routes/Admin/PangkatRoute.js";
 import GolonganRoute from "./routes/Admin/GolonganRoute.js";
-import SuratRoute from "./routes/Admin/SuratRoute.js";
-import DistribusiRoute from "./routes/Admin/DistribusiRoute.js";
+
+// route user
+import SuratRouteUser from "./routes/Users/SuratRoute.js";
+import DistribusiRouteUser from "./routes/Users/DistribusiRoute.js";
 
 const app = express();
 
@@ -28,7 +32,7 @@ const store = new sessionStore({
 // (async()=>{
 //     await db.sync();
 // })();
- 
+
 /**
  * @return fungsi untuk mengatur session
  * @param secret untuk secret session
@@ -68,13 +72,17 @@ app.listen(process.env.APP_PORT, () => {
 app.use(express.json());
 app.use(fileUpload());
 app.use(express.static("public"));
+
+// route admin
 app.use(AuthRoute);
 app.use(UserRoute);
 app.use(PegawaiRoute);
 app.use(BidangRoute);
 app.use(PangkatRoute);
+app.use(SuratRouteUser);
+
+// route user
 app.use(GolonganRoute);
-app.use(SuratRoute);
-app.use(DistribusiRoute);
+app.use(DistribusiRouteUser);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login

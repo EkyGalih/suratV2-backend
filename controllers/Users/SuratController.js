@@ -1,9 +1,10 @@
-import { UUIDV4, where } from "sequelize";
+import { Op } from "sequelize";
+import {v4 as UUIDV4} from 'uuid';
 import Bidang from "../../models/BidangModel.js";
 import Surat from "../../models/SuratModel.js";
 import FileSurat from "../../models/FileSuratModel.js";
 
-export const getSurat = async (req, res) => {
+export const getAllSurat = async (req, res) => {
     try {
         const response = await Surat.findAll({
             include: [{
@@ -12,6 +13,78 @@ export const getSurat = async (req, res) => {
             }]
         });
         res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
+export const getSurat = async (req, res) => {
+    try {
+        const page = parseInt(req.query.age) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Surat.count({
+            where: {
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
+            }]
+        });
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Surat.findAll({
+            where: {
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
@@ -80,10 +153,8 @@ export const updateSurat = async (req, res) => {
     const {
         jenis_surat, kategori, tgl_terima, asal_surat, tgl_surat, no_surat, perihal, diteruskan, isi_disposisi, status_surat, bidangId, file, lampiran
     } = req.body;
-    const uuid = UUIDV4();
     try {
         await Surat.update({
-            id: uuid,
             jenis_surat: jenis_surat,
             kategori: kategori,
             tgl_terima: tgl_terima,
@@ -105,7 +176,6 @@ export const updateSurat = async (req, res) => {
             path_file: file,
             lampiran: lampiran,
             path_lampiran: lampiran,
-            suratId: uuid
         }, {
             where: {
                 suratId: surat.id

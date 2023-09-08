@@ -4,7 +4,7 @@ import {
     deleteDistribusi,
     getDistribusi,
     getDistribusiById
-} from "../../controllers/Admin/DistribusiController.js";
+} from "../../controllers/Users/DistribusiController.js";
 import { verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();

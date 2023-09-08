@@ -7,6 +7,7 @@ const {DataTypes} = Sequelize;
 const FileSurat = db.define('file_surat', {
     id: {
         type: DataTypes.STRING(40),
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false,
         validate: {

@@ -11,11 +11,11 @@ import { verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
-router.get('/pegawai', verifyUser, getPegawai);
-router.get('/pegawais', verifyUser, getAllPegawai);
-router.get('/pegawai/:id', verifyUser, getPegawaiById);
-router.post('/pegawai', verifyUser, createPegawai);
-router.patch('/pegawai/:id', verifyUser, updatePegawai);
-router.delete('/pegawai/:id', verifyUser, deletePegawai);
+router.get('/admin/pegawai', getPegawai);
+router.get('/admin/pegawais', getAllPegawai);
+router.get('/admin/pegawai/:id', getPegawaiById);
+router.post('/admin/pegawai', verifyUser, createPegawai);
+router.patch('/admin/pegawai/:id', verifyUser, updatePegawai);
+router.delete('/admin/pegawai/:id', verifyUser, deletePegawai);
 
 export default router;

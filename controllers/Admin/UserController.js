@@ -71,7 +71,7 @@ export const getUserById = async (req, res) => {
             },
             include: [{
                 model: Pegawai,
-                attributes: ['nip', 'name', 'foto', 'url']
+                attributes: ['nip', 'name', 'foto', 'url', 'bidangId', 'pangkatId', 'golonganId', 'tempat_lahir', 'tanggal_lahir', 'umur', 'jabatan', 'nama_jabatan', 'jenis_kelamin', 'agama', 'jenis_pegawai', 'masa_kerja_golongan']
             }]
         });
         res.status(200).json(response);
@@ -137,15 +137,15 @@ export const deleteUser = async (req, res) => {
             id: req.params.id
         }
     });
-    if (!user) return res.status(404).json({ msg: "user tidak ditemukan" });
+    if (!user) return res.status(404).json({ msg: "user tidak ditemukan", status: "fail" });
     try {
         await Users.destroy({
             where: {
                 id: user.id
             }
         });
-        res.status(200).json({ msg: "User dihapus" });
+        res.status(200).json({ msg: "User dihapus", status: "ok" });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        res.status(400).json({ msg: error.message, status: "fail" });
     }
 }
