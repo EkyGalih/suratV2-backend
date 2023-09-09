@@ -1,17 +1,19 @@
 import express from "express";
 import {
-    getPegawai,
     getPegawaiById,
     createPegawai,
     updatePegawai,
     deletePegawai,
-    getAllPegawai
+    getAllPegawai,
+    getPegawaiAsn,
+    getPegawaiNonAsn
 } from "../../controllers/Admin/PegawaiController.js";
 import { verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
-router.get('/admin/pegawai', getPegawai);
+router.get('/admin/pegawai/asn', getPegawaiAsn);
+router.get('/admin/pegawai/nonasn', getPegawaiNonAsn);
 router.get('/admin/pegawais', getAllPegawai);
 router.get('/admin/pegawai/:id', getPegawaiById);
 router.post('/admin/pegawai', createPegawai);

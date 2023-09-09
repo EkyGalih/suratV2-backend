@@ -26,7 +26,7 @@ export const getAllPegawai = async (req, res) => {
     }
 }
 
-export const getPegawai = async (req, res) => {
+export const getPegawaiAsn = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 0;
         const limit = parseInt(req.query.limit) || 10;
@@ -34,6 +34,7 @@ export const getPegawai = async (req, res) => {
         const offset = limit * page;
         const totalRows = await Pegawai.count({
             where: {
+                jenis_pegawai: 'pns',
                 [Op.or]: [{
                     name: {
                         [Op.like]: '%' + search + '%'
@@ -58,12 +59,17 @@ export const getPegawai = async (req, res) => {
         const totalPage = Math.ceil(totalRows / limit);
         const result = await Pegawai.findAll({
             where: {
+                jenis_pegawai: 'pns',
                 [Op.or]: [{
                     name: {
                         [Op.like]: '%' + search + '%'
                     }
                 }, {
                     nip: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    bidangId: {
                         [Op.like]: '%' + search + '%'
                     }
                 }]
@@ -95,6 +101,67 @@ export const getPegawai = async (req, res) => {
         console.log(error.message);
     }
 }
+
+export const getPegawaiNonAsn = async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Pegawai.count({
+            where: {
+                jenis_pegawai: ['kontrak', 'p3k', 'ptt'],
+                [Op.or]: [{
+                    name: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    nip: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['nama_bidang']
+            }],
+        });
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Pegawai.findAll({
+            where: {
+                jenis_pegawai: ['kontrak', 'p3k', 'ptt'],
+                [Op.or]: [{
+                    name: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    nip: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['nama_bidang']
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 
 export const getPegawaiById = async (req, res) => {
     try {
