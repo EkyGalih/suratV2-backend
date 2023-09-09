@@ -12,7 +12,12 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/bidang
+PATCH http://localhost:5000/admin/golongan/2f4595bd-63d1-4b65-9b68-7e12201ab5c5
+Content-Type: application/json
+
+{
+    "nama_golongan": "tes"
+}
 
 ###
 POST http://localhost:5000/admin/users

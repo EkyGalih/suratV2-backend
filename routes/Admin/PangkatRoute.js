@@ -10,10 +10,10 @@ import { adminOnly, verifyUser } from "../../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
-router.get('/admin/pangkat', verifyUser, adminOnly, getPangkat);
-router.get('/admin/pangkat/:id', verifyUser, adminOnly, getPangkatById);
-router.post('/admin/pangkat', verifyUser, adminOnly, createPangkat);
-router.patch('/admin/pangkat/:id', verifyUser, adminOnly, updatePangkat);
-router.delete('/admin/pangkat/:id', verifyUser, adminOnly, deletePangkat);
+router.get('/admin/pangkat', getPangkat);
+router.get('/admin/pangkat/:id', getPangkatById);
+router.post('/admin/pangkat', createPangkat);
+router.patch('/admin/pangkat/:id', updatePangkat);
+router.delete('/admin/pangkat/:id', deletePangkat);
 
 export default router;

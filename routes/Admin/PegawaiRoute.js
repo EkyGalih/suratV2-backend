@@ -14,8 +14,8 @@ const router = express.Router();
 router.get('/admin/pegawai', getPegawai);
 router.get('/admin/pegawais', getAllPegawai);
 router.get('/admin/pegawai/:id', getPegawaiById);
-router.post('/admin/pegawai', verifyUser, createPegawai);
-router.patch('/admin/pegawai/:id', verifyUser, updatePegawai);
-router.delete('/admin/pegawai/:id', verifyUser, deletePegawai);
+router.post('/admin/pegawai', createPegawai);
+router.patch('/admin/pegawai/:id', updatePegawai);
+router.delete('/admin/pegawai/:id', deletePegawai);
 
 export default router;
