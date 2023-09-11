@@ -26,6 +26,7 @@ export const getSurat = async (req, res) => {
         const offset = limit * page;
         const totalRows = await Surat.count({
             where: {
+                bidangId: req.params.bidangId,
                 [Op.or]: [{
                     no_surat: {
                         [Op.like]: '%' + search + '%'
@@ -51,6 +52,7 @@ export const getSurat = async (req, res) => {
         const totalPage = Math.ceil(totalRows / limit);
         const result = await Surat.findAll({
             where: {
+                bidangId: req.params.bidangId,
                 [Op.or]: [{
                     no_surat: {
                         [Op.like]: '%' + search + '%'

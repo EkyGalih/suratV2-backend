@@ -12,7 +12,7 @@ import { verifyUser, userOnly } from "../../middleware/AuthMiddleware.js";
 const router = express.Router();
 
 router.get('/user/surat', getAllSurat);
-router.get('/user/surat', getSurat);
+router.get('/user/surat/:bidangId', getSurat);
 router.get('/user/surat/:id', getSuratById);
 router.post('/user/surat', createSurat);
 router.patch('/user/surat/:id', updateSurat);
