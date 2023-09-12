@@ -2,13 +2,13 @@ import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 import Bidang from "./BidangModel.js";
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
 const Surat = db.define('surat', {
     id: {
         type: DataTypes.STRING(40),
         primaryKey: true,
-        allowNull: false, 
+        allowNull: false,
         defaultValue: DataTypes.UUIDV4,
         validate: {
             notEmpty: true
@@ -16,8 +16,17 @@ const Surat = db.define('surat', {
         autoIncrement: false
     },
     jenis_surat: {
-        type : DataTypes.ENUM({
+        type: DataTypes.ENUM({
             values: ['masuk', 'keluar']
+        }),
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    kategori: {
+        type: DataTypes.ENUM({
+            values: ['biasa', 'sppd', 'undangan']
         }),
         allowNull: false,
         validate: {
@@ -33,7 +42,7 @@ const Surat = db.define('surat', {
     },
     asal_surat: {
         type: DataTypes.STRING(30),
-        allowNull: false, 
+        allowNull: false,
         validate: {
             notEmpty: true
         }
@@ -85,6 +94,6 @@ const Surat = db.define('surat', {
 });
 
 Bidang.hasMany(Surat);
-Surat.belongsTo(Bidang, {foreignKey: 'bidangId'});
+Surat.belongsTo(Bidang, { foreignKey: 'bidangId' });
 
 export default Surat;
