@@ -87,7 +87,7 @@ export const getPegawaiAsn = async (req, res) => {
             offset: offset,
             limit: limit,
             order: [
-                ['createdAt', 'DESC']
+                ['name', 'ASC']
             ]
         });
         res.status(200).json({
@@ -147,7 +147,7 @@ export const getPegawaiNonAsn = async (req, res) => {
             offset: offset,
             limit: limit,
             order: [
-                ['createdAt', 'DESC']
+                ['name', 'ASC']
             ]
         });
         res.status(200).json({
