@@ -8,13 +8,71 @@ import FileSurat from "../../models/FileSuratModel.js";
 
 export const getAllSurat = async (req, res) => {
     try {
-        const response = await Surat.findAll({
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Surat.count({
+            where: {
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
             include: [{
                 model: Bidang,
                 attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
             }]
         });
-        res.status(200).json(response);
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Surat.findAll({
+            where: {
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
@@ -22,7 +80,7 @@ export const getAllSurat = async (req, res) => {
 
 export const getSurat = async (req, res) => {
     try {
-        const page = parseInt(req.query.age) || 0;
+        const page = parseInt(req.query.page) || 0;
         const limit = parseInt(req.query.limit) || 10;
         const search = req.query.search_query || "";
         const offset = limit * page;
@@ -212,9 +270,9 @@ export const updateSurat = async (req, res) => {
             suratId: req.params.id
         }
     });
-    
+
     if (!surat) return res.status(404).json({ msg: "Surat tidak ditemukan!", status: 'fail' });
-   
+
     let fileName = "";
     if (req.files === null) {
         fileName = surat.file;
@@ -227,7 +285,7 @@ export const updateSurat = async (req, res) => {
 
         if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "invalid File", status: 'fail' });
         if (fileSize > 5000000) return res.status(422).json({ msg: "File must be less than 5MB", status: 'fail' });
-      
+
         if (surat.surat.jenis_surat === 'keluar') {
             const filepath = `./public/surat/SuratKeluar/${surat.file}`;
             fs.unlinkSync(filepath);
@@ -259,7 +317,7 @@ export const updateSurat = async (req, res) => {
         bidangId,
         lampiran
     } = req.body;
-    
+
     if (jenis_surat === 'keluar') {
         const url = `${req.protocol}://${req.get("host")}/surat/SuratKeluar/${fileName}`;
         try {
