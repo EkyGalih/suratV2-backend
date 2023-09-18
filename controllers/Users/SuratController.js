@@ -6,7 +6,7 @@ import Bidang from "../../models/BidangModel.js";
 import Surat from "../../models/SuratModel.js";
 import FileSurat from "../../models/FileSuratModel.js";
 
-export const getAllSurat = async (req, res) => {
+export const getSuratKeluar = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 0;
         const limit = parseInt(req.query.limit) || 10;
@@ -14,6 +14,7 @@ export const getAllSurat = async (req, res) => {
         const offset = limit * page;
         const totalRows = await Surat.count({
             where: {
+                jenis_surat: 'keluar',
                 [Op.or]: [{
                     no_surat: {
                         [Op.like]: '%' + search + '%'
@@ -39,6 +40,81 @@ export const getAllSurat = async (req, res) => {
         const totalPage = Math.ceil(totalRows / limit);
         const result = await Surat.findAll({
             where: {
+                jenis_surat: 'keluar',
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
+            }],
+            offset: offset,
+            limit: limit,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+        res.status(200).json({
+            result: result,
+            page: page,
+            limit: limit,
+            totalRows: totalRows,
+            totalPage: totalPage
+        });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
+export const getSuratMasuk = async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Surat.count({
+            where: {
+                jenis_surat: 'masuk',
+                [Op.or]: [{
+                    no_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    asal_surat: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }, {
+                    perihal: {
+                        [Op.like]: '%' + search + '%'
+                    }
+                }]
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['id', 'nama_bidang']
+            }, {
+                model: FileSurat,
+                attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
+            }]
+        });
+        const totalPage = Math.ceil(totalRows / limit);
+        const result = await Surat.findAll({
+            where: {
+                jenis_surat: 'masuk',
                 [Op.or]: [{
                     no_surat: {
                         [Op.like]: '%' + search + '%'
