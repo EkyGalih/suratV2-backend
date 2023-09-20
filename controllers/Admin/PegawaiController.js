@@ -212,7 +212,7 @@ export const createPegawai = async (req, res) => {
         golonganId,
         bidangId
     } = req.body;
-   
+
     const file = req.files.foto;
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
@@ -220,8 +220,8 @@ export const createPegawai = async (req, res) => {
     const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
     const allowedType = ['.png', '.jpg', '.jpeg'];
 
-    if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images", st: 'fail' });
-    if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB", st: 'fail' });
+    if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images", status: 'fail' });
+    if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB", status: 'fail' });
 
     file.mv(`./public/images/${fileName}`, async (err) => {
         if (err) return res.status(500).json({ msg: err.message });
@@ -252,9 +252,9 @@ export const createPegawai = async (req, res) => {
                 golonganId: golonganId,
                 bidangId: bidangId
             });
-            res.status(200).json({ msg: "Pegawai dibuat!", st: 'ok' });
+            res.status(200).json({ msg: "Pegawai dibuat!", status: 'ok' });
         } catch (error) {
-            res.status(400).json({ msg: error.message, st: 'fail' });
+            res.status(400).json({ msg: error.message, status: 'fail' });
         }
     });
 }
@@ -272,7 +272,7 @@ export const updatePegawai = async (req, res) => {
             model: Pangkat
         }]
     });
-    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!", st: 'fail' });
+    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!", status: 'fail' });
 
     let fileName = "";
     if (req.files === null) {
@@ -282,13 +282,15 @@ export const updatePegawai = async (req, res) => {
         const fileSize = file.data.length;
         const ext = path.extname(file.name);
         fileName = file.md5 + ext;
-        const allowedType = ['.png', 'jpg', 'jpeg'];
+        const allowedType = ['.png', '.jpg', '.jpeg'];
 
-        if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images", st: 'fail' });
-        if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB", st: 'fail' });
+        if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images", status: 'fail' });
+        if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5MB", status: 'fail' });
 
-        const filepath = `./public/images/${peg.foto}`;
-        fs.unlinkSync(filepath);
+        if (peg.foto !== null) {
+            const filepath = `./public/images/${peg.foto}`;
+            fs.unlinkSync(filepath);
+        }
 
         file.mv(`./public/images/${fileName}`, (err) => {
             if (err) return res.status(500).json({ msg: err.message });
@@ -352,9 +354,9 @@ export const updatePegawai = async (req, res) => {
                 id: peg.id
             }
         });
-        res.status(200).json({ msg: "Pegawai Diubah!", st: 'ok' });
+        res.status(200).json({ msg: "Pegawai Diubah!", status: 'ok' });
     } catch (error) {
-        res.status(400).json({ msg: error.message, st: 'fail' });
+        res.status(400).json({ msg: error.message, status: 'fail' });
     }
 }
 
@@ -364,7 +366,7 @@ export const deletePegawai = async (req, res) => {
             id: req.params.id
         }
     });
-    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!", st: 'fail' });
+    if (!peg) return res.status(404).json({ msg: "Pegawai tidak ditemukan!", status: 'fail' });
     try {
         const filepath = `./public/images/${peg.foto}`;
         fs.unlinkSync(filepath);
@@ -373,8 +375,8 @@ export const deletePegawai = async (req, res) => {
                 id: peg.id
             }
         });
-        res.status(200).json({ msg: "Pegawai dihapus!", st: 'ok' });
+        res.status(200).json({ msg: "Pegawai dihapus!", status: 'ok' });
     } catch (error) {
-        res.status(400).json({ msg: error.message, st: 'fail' });
+        res.status(400).json({ msg: error.message, status: 'fail' });
     }
 }
