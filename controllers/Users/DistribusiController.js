@@ -18,6 +18,25 @@ export const getDistribusi = async (req, res) => {
     }
 }
 
+export const getDistribusiByBidangId = async (req, res) => {
+    try {
+        const response = await Distribusi.findAll({
+            where: {
+                bidangId: req.params.bidangId
+            },
+            include: [{
+                model: Bidang,
+                attributes: ['nama_bidang']
+            }, {
+                model: Surat
+            }]
+        });
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
 export const getDistribusiById = async (req, res) => {
     try {
         const response = await Distribusi.findOne({

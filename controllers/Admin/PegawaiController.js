@@ -19,6 +19,9 @@ export const getAllPegawai = async (req, res) => {
                 model: Pangkat,
                 attributes: ['nama_pangkat']
             }],
+            order: [
+                ['name', 'ASC']
+            ]
         });
         res.status(200).json(response);
     } catch (error) {

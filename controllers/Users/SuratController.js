@@ -163,6 +163,7 @@ export const getSurat = async (req, res) => {
         const totalRows = await Surat.count({
             where: {
                 bidangId: req.params.bidangId,
+                jenis_surat: 'keluar',
                 [Op.or]: [{
                     no_surat: {
                         [Op.like]: '%' + search + '%'
