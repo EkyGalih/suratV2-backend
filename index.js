@@ -19,6 +19,10 @@ import GolonganRoute from "./routes/Admin/GolonganRoute.js";
 import SuratRouteUser from "./routes/Users/SuratRoute.js";
 import DistribusiRouteUser from "./routes/Users/DistribusiRoute.js";
 
+// router agendaris
+import SuratRouteAgend from "./routes/Agendaris/SuratAgendRoute.js";
+import BidangRouteAgend from "./routes/Agendaris/BidangAgendRoute.js";
+
 const app = express();
 
 /**
@@ -84,5 +88,9 @@ app.use(SuratRouteUser);
 // route user
 app.use(GolonganRoute);
 app.use(DistribusiRouteUser);
+
+// route agendaris
+app.use(SuratRouteAgend);
+app.use(BidangRouteAgend);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login
