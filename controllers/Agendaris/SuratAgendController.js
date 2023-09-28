@@ -180,9 +180,6 @@ export const getSuratMasuk = async (req, res) => {
                 }]
             },
             include: [{
-                model: Bidang,
-                attributes: ['id', 'nama_bidang']
-            }, {
                 model: FileSurat,
                 attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
             }]
@@ -206,9 +203,6 @@ export const getSuratMasuk = async (req, res) => {
                 }]
             },
             include: [{
-                model: Bidang,
-                attributes: ['id', 'nama_bidang']
-            }, {
                 model: FileSurat,
                 attributes: ['file', 'path_file', 'lampiran', 'path_lampiran']
             }],
