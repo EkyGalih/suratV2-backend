@@ -7,13 +7,25 @@ export const distSuratMasuk = async (req, res) => {
             id: req.params.suratId
         }
     });
-
     if (!surat) return res.status(404).json({ msg: "Surat tidak ditemukan!", status: 'fail' });
+    
+    const dist = await Distribusi.findAll({
+        where: {
+            suratId: surat.id
+        }
+    });
+    if (!dist) res.status(404).json({ msg: "Surat belum di distribusikan!", status: 'fail' });
 
     const { distribusi, diteruskan } = req.body;
     var arrayDist = distribusi.split(",");
 
     try {
+        await Distribusi.destroy({
+            where: {
+                suratId: surat.id
+            }
+        });
+        
         await arrayDist.forEach(value => {
             Distribusi.create({
                 suratId: req.params.suratId,

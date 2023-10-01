@@ -1,6 +1,7 @@
 import Distribusi from "../../models/DistribusiModel.js";
 import Bidang from "../../models/BidangModel.js";
 import Surat from "../../models/SuratModel.js";
+import { Op } from "sequelize";
 
 export const getDistribusi = async (req, res) => {
     try {
@@ -20,9 +21,24 @@ export const getDistribusi = async (req, res) => {
 
 export const getDistribusiByBidangId = async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 0;
+        const limit = parseInt(req.query.limit) || 11;
+        const search = req.query.search_query || "";
+        const offset = limit * page;
+        const totalRows = await Distribusi
+        .count({
+            where: {
+                bidangId: req.params.bidangId,
+                status_baca: 'unread',
+                [Op.or]: [{
+                    
+                }]
+            }
+        });
         const response = await Distribusi.findAll({
             where: {
-                bidangId: req.params.bidangId
+                bidangId: req.params.bidangId,
+                status_baca: 'unread'
             },
             include: [{
                 model: Bidang,
@@ -31,7 +47,10 @@ export const getDistribusiByBidangId = async (req, res) => {
                 model: Surat
             }]
         });
-        res.status(200).json(response);
+        res.status(200).json({
+            result: response,
+            totalRows: totalRows
+        });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
