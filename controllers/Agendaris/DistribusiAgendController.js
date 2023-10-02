@@ -51,7 +51,10 @@ export const getDistribusiBySuratId = async (req, res) => {
     const distribusi = await Distribusi.findAll({
         where: {
             suratId: req.params.suratId
-        }
+        },
+        order: [
+            ['bidangId', 'ASC']
+        ]
     });
 
     if (!distribusi) return res.status(404).json({ msg: "Surat belum di distribusi!", status: 'faile' });
