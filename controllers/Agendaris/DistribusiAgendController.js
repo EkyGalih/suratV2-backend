@@ -35,7 +35,8 @@ export const distSuratMasuk = async (req, res) => {
         });
 
         await Surat.update({
-            diteruskan: diteruskan
+            diteruskan: diteruskan,
+            status_surat: 'done'
         }, {
             where: {
                 id: surat.id

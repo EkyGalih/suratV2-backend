@@ -569,7 +569,7 @@ export const updateSurat = async (req, res) => {
             });
             res.status(200).json({ msg: "Surat berhasil di perbaharui!", status: 'ok' });
         } catch (error) {
-            res.status(400).json({ msg: error.message, status: 'faile' });
+            res.status(400).json({ msg: error.message, status: 'fail' });
         }
     } else if (jenis_surat === 'masuk') {
         const url = `${req.protocol}://${req.get("host")}/surat/SuratMasuk/${fileName}`;

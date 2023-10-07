@@ -24,6 +24,9 @@ import SuratRouteAgend from "./routes/Agendaris/SuratAgendRoute.js";
 import BidangRouteAgend from "./routes/Agendaris/BidangAgendRoute.js";
 import DistribusiRouteAgend from "./routes/Agendaris/DistribusiAgendRoute.js";
 
+// router pimpinan
+import SuratRoutePimpinan from "./routes/Pimpinan/SuratPimpinanRoute.js";
+
 const app = express();
 
 /**
@@ -94,5 +97,8 @@ app.use(DistribusiRouteUser);
 app.use(SuratRouteAgend);
 app.use(BidangRouteAgend);
 app.use(DistribusiRouteAgend);
+
+// route pimpinan
+app.use(SuratRoutePimpinan);
 
 // store.sync(); //membuat tabel session untuk menyimpan session login
