@@ -73,6 +73,10 @@ const Surat = db.define('surat', {
         type: DataTypes.STRING(100),
         allowNull: true
     },
+    catatan: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
     status_surat: {
         type: DataTypes.ENUM({
             values: ['proggress', 'unread', 'read', 'done']
